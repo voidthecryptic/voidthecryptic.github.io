@@ -5,148 +5,243 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Arsalan Masoodi | Portfolio</title>
 
-<!-- Google Icons -->
+<!-- Google Fonts & Icons -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-<!-- AOS Animate On Scroll -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-<!-- Typed.js -->
+<!-- Typed.js for typewriter effect -->
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-<!-- Particles.js -->
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.0/tsparticles.min.js"></script>
+<!-- AOS.js for scroll animations -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<!-- tsParticles for interactive background -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.1/tsparticles.bundle.min.js"></script>
 
 <style>
-  :root {
-    --bg: #f5f5f5;
-    --text: #222;
-    --card-bg: white;
-    --nav-bg: white;
+:root {
+  --bg: #f5f5f5;
+  --text: #222;
+  --card-bg: white;
+  --nav-bg: white;
+  --accent: #3b82f6;
+  
+  --bg-dark: #0f172a;
+  --text-dark: #e2e8f0;
+  --card-bg-dark: #1e293b;
+  --nav-bg-dark: #1e293b;
+}
 
-    --bg-dark: #0f172a;
-    --text-dark: #e2e8f0;
-    --card-bg-dark: #1e293b;
-    --nav-bg-dark: #1e293b;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
 
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    transition: background 0.3s, color 0.3s;
-    scroll-behavior: smooth;
-  }
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
 
-  body.dark {
-    background: var(--bg-dark);
-    color: var(--text-dark);
-  }
+nav {
+  background: var(--nav-bg);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
 
-  nav {
-    background: var(--nav-bg);
-    position: sticky;
-    top: 0;
-    width: 100%;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    transition: background 0.3s;
-    z-index: 1000;
-  }
-  body.dark nav { background: var(--nav-bg-dark); }
-  nav a {
-    color: inherit;
-    text-decoration: none;
-    margin: 0 12px;
-    font-weight: bold;
-  }
+body.dark nav {
+  background: var(--nav-bg-dark);
+}
 
-  #darkToggle { cursor: pointer; font-size: 28px; }
+nav a {
+  color: inherit;
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: bold;
+}
 
-  .hero {
-    position: relative;
-    color: white;
-    text-align: center;
-    padding: 120px 20px;
-    overflow: hidden;
-  }
+#darkToggle {
+  cursor: pointer;
+  font-size: 28px;
+}
 
-  #particles-js { position: absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 120px 20px;
+  color: white;
+  overflow: hidden;
+}
 
-  .hero-content {
-    position: relative;
-    z-index: 1;
-  }
+#tsparticles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
 
-  .hero h1 { font-size: 48px; margin: 0; }
-  .hero h2 { font-size: 22px; opacity: 0.9; font-weight: lighter; }
+.hero h1 {
+  font-size: 48px;
+  margin: 0;
+  z-index: 1;
+  position: relative;
+}
 
-  .buttons a {
-    text-decoration: none;
-    background: white;
-    color: #3b82f6;
-    padding: 10px 18px;
-    margin: 8px;
-    border-radius: 7px;
-    display: inline-block;
-    font-weight: bold;
-    transition: 0.2s;
-  }
-  .buttons a:hover { background: #dbeafe; }
+.hero h2 {
+  font-size: 22px;
+  opacity: 0.9;
+  font-weight: lighter;
+  z-index: 1;
+  position: relative;
+}
 
-  .section-title {
-    text-align: center;
-    margin-top: 50px;
-    font-size: 30px;
-    font-weight: bold;
-  }
+.buttons {
+  margin-top: 20px;
+  z-index: 1;
+  position: relative;
+}
 
-  .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-    padding: 30px;
-  }
+.buttons a {
+  text-decoration: none;
+  background: white;
+  color: var(--accent);
+  padding: 10px 18px;
+  margin: 8px;
+  border-radius: 7px;
+  display: inline-block;
+  font-weight: bold;
+  transition: 0.2s;
+}
 
-  .card {
-    background: var(--card-bg);
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.15);
-    transition: 0.3s ease;
-  }
-  body.dark .card { background: var(--card-bg-dark); }
-  .card:hover { transform: translateY(-5px); }
-  .card img { width: 100%; border-radius: 10px; }
-  .card h3 { margin-bottom: 5px; }
+.buttons a:hover {
+  background: #dbeafe;
+}
 
-  .pdf-box { display: flex; justify-content: center; margin: 40px 0; }
-  iframe { width: 80%; height: 95vh; border: none; box-shadow: 0 5px 20px rgba(0,0,0,0.25); }
+.section-title {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 30px;
+  font-weight: bold;
+}
 
-  .contact {
-    width: 90%; max-width: 600px; margin: auto;
-    background: var(--card-bg); padding: 25px; border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-  }
-  body.dark .contact { background: var(--card-bg-dark); }
-  .contact input, .contact textarea {
-    width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: none; font-size: 16px;
-  }
-  .contact button {
-    padding: 12px 18px; background: #3b82f6; border-radius: 8px;
-    color: white; border: none; font-size: 16px; cursor: pointer;
-  }
+.projects, .skills-grid, .certificates, .timeline {
+  display: grid;
+  gap: 20px;
+  padding: 30px;
+}
 
-  footer { text-align: center; padding: 20px; margin-top: 50px; background: #1f2937; color: white; }
+.projects, .certificates {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
 
-  [data-aos] { opacity: 0; transition-property: opacity, transform; }
+.skills-grid {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  justify-items: center;
+}
+
+.card, .skill-card, .cert-card, .timeline-item {
+  background: var(--card-bg);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
+}
+
+body.dark .card, body.dark .skill-card, body.dark .cert-card, body.dark .timeline-item {
+  background: var(--card-bg-dark);
+}
+
+.card:hover, .cert-card:hover, .skill-card:hover {
+  transform: translateY(-5px);
+}
+
+.card img, .cert-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.pdf-box {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+iframe {
+  width: 80%;
+  height: 90vh;
+  border: none;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.25);
+}
+
+.contact {
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.15);
+}
+
+body.dark .contact {
+  background: var(--card-bg-dark);
+}
+
+.contact input, .contact textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+
+.contact button {
+  padding: 12px 18px;
+  background: var(--accent);
+  border-radius: 8px;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+  background: #1f2937;
+  color: white;
+}
+
+@media (max-width: 600px){
+  .hero h1 { font-size: 36px; }
+  .hero h2 { font-size: 18px; }
+}
+
+/* Animations */
+[data-aos] {
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-duration: 1s;
+}
 
 </style>
 </head>
+
 <body>
 
 <!-- NAVBAR -->
@@ -154,7 +249,10 @@
   <div>
     <a href="#home">Home</a>
     <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
     <a href="#resume">Resume</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#timeline">Experience</a>
     <a href="#contact">Contact</a>
   </div>
   <span id="darkToggle" class="material-icons">dark_mode</span>
@@ -162,33 +260,89 @@
 
 <!-- HERO -->
 <div class="hero" id="home">
-  <div id="particles-js"></div>
-  <div class="hero-content">
-    <h1 id="typed-name"></h1>
-    <h2>Electronics • VLSI • Chip Design • Embedded Systems</h2>
-    <div class="buttons">
-      <a href="Arsalan_resume.pdf" target="_blank">📄 View Resume</a>
-      <a href="https://github.com/arsalanmasoodi" target="_blank">🐙 GitHub</a>
-    </div>
+  <div id="tsparticles"></div>
+  <h1 id="typedName"></h1>
+  <h2>Electronics • VLSI • Chip Design • Embedded Systems</h2>
+  <div class="buttons">
+    <a href="Arsalan_resume.pdf" target="_blank">📄 View Resume</a>
+    <a href="https://github.com/arsalanmasoodi" target="_blank">🐙 GitHub</a>
   </div>
 </div>
 
 <!-- PROJECTS -->
-<div class="section-title" id="projects" data-aos="fade-up">Projects</div>
+<div class="section-title" id="projects">Projects</div>
 <div class="projects">
-  <div class="card" data-aos="fade-up"><img src="rca.png" alt="RCA"><h3>Ripple Carry Adder</h3><p>Custom transistor-level RCA in Cadence Virtuoso. Simulated with Spectre, generated GDSII.</p></div>
-  <div class="card" data-aos="fade-up"><img src="amp.png" alt="Amp"><h3>Audio Amplifier</h3><p>LTspice simulations + KiCad PCB. Frequency response optimized for clean audio gain.</p></div>
-  <div class="card" data-aos="fade-up"><img src="snn.png" alt="SNN"><h3>Spiking Neuron Model</h3><p>LIF neuron simulation for custom NPU prototype. RTL experiments in Verilog.</p></div>
+  <div class="card" data-aos="fade-up">
+    <img src="rca.png" alt="RCA">
+    <h3>Ripple Carry Adder</h3>
+    <p>Cadence Virtuoso, Spectre, Linux. Designed full ripple-carry adder with GDSII output.</p>
+  </div>
+  <div class="card" data-aos="fade-up" data-aos-delay="100">
+    <img src="amp.png" alt="Audio Amplifier">
+    <h3>Audio Amplifier</h3>
+    <p>LTspice + KiCAD PCB design. Frequency response optimized for clean audio gain.</p>
+  </div>
+  <div class="card" data-aos="fade-up" data-aos-delay="200">
+    <img src="snn.png" alt="SNN">
+    <h3>Spiking Neuron Model</h3>
+    <p>LIF neuron simulation for custom NPU prototype. RTL experiments in Verilog.</p>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="section-title" id="skills">Technical Skills</div>
+<div class="skills-grid">
+  <div class="skill-card" data-aos="fade-up" data-aos-delay="50">Python</div>
+  <div class="skill-card" data-aos="fade-up" data-aos-delay="100">C++</div>
+  <div class="skill-card" data-aos="fade-up" data-aos-delay="150">Verilog</div>
+  <div class="skill-card" data-aos="fade-up" data-aos-delay="200">LTspice</div>
+  <div class="skill-card" data-aos="fade-up" data-aos-delay="250">Cadence Virtuoso</div>
+  <div class="skill-card" data-aos="fade-up" data-aos-delay="300">KiCAD</div>
+  <div class="skill-card" data-aos="fade-up" data-aos-delay="350">Embedded C</div>
 </div>
 
 <!-- RESUME -->
-<div class="section-title" id="resume" data-aos="fade-up">Resume</div>
-<div class="pdf-box" data-aos="fade-up">
+<div class="section-title" id="resume">Resume</div>
+<div class="pdf-box">
   <iframe src="Arsalan_resume.pdf"></iframe>
 </div>
 
+<!-- CERTIFICATES -->
+<div class="section-title" id="certificates">Certificates</div>
+<div class="certificates">
+  <div class="cert-card" data-aos="fade-up"><p><b>Digital IC Design</b> - <a href="https://nptel.ac.in/noc/E_Certificate/NPTEL25EE21S64770049504263377" target="_blank">Verify</a></p></div>
+  <div class="cert-card" data-aos="fade-up" data-aos-delay="50"><p><b>Computer Networks</b> - <a href="https://nptel.ac.in/noc/E_Certificate/NPTEL25CS15S124770045304263377" target="_blank">Verify</a></p></div>
+  <div class="cert-card" data-aos="fade-up" data-aos-delay="100"><p><b>VLSI RTL to GDS</b> - <a href="https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25EE106S65890050110230442" target="_blank">Verify</a></p></div>
+</div>
+
+<!-- TIMELINE -->
+<div class="section-title" id="timeline">Experience / Leadership</div>
+<div class="timeline">
+  <div class="timeline-item" data-aos="fade-up">
+    <h3>Undergraduate Research Assistant</h3>
+    <p>National Institute of Technology, Srinagar | June 2020 – Present</p>
+    <ul>
+      <li>Research in semiconductor device physics, LTspice simulations, CMOS design optimization.</li>
+    </ul>
+  </div>
+  <div class="timeline-item" data-aos="fade-up" data-aos-delay="50">
+    <h3>Tarang Member</h3>
+    <p>Shri Mata Vaishno Devi University | Dec 2024 – Present</p>
+    <ul>
+      <li>Managed events and designed circuits for PCB competitions.</li>
+    </ul>
+  </div>
+  <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+    <h3>Vikalp Member</h3>
+    <p>Shri Mata Vaishno Devi University | April 2023 – Present</p>
+    <ul>
+      <li>Teaching underprivileged children technical skills.</li>
+    </ul>
+  </div>
+</div>
+
 <!-- CONTACT -->
-<div class="section-title" id="contact" data-aos="fade-up">Contact Me</div>
+<div class="section-title" id="contact">Contact Me</div>
 <div class="contact" data-aos="fade-up">
   <form action="https://formspree.io/f/xyzybqyb" method="POST">
     <input type="text" name="name" placeholder="Your name" required>
@@ -198,25 +352,35 @@
   </form>
 </div>
 
+<!-- FOOTER -->
 <footer>
   © 2025 Arsalan Masoodi • Portfolio Website
 </footer>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-  AOS.init({ duration: 1000, once: true });
-
+  // Dark mode toggle
   const toggle = document.getElementById('darkToggle');
   toggle.onclick = () => document.body.classList.toggle('dark');
 
-  // Typewriter effect
-  new Typed('#typed-name', { strings: ["Arsalan Masoodi"], typeSpeed: 100, backSpeed: 50, loop: false });
+  // Typed.js initialization
+  new Typed('#typedName', {
+    strings: ['Arsalan Masoodi', 'Electronics Engineer', 'VLSI Designer', 'Embedded Systems Enthusiast'],
+    typeSpeed: 100,
+    backSpeed: 50,
+    backDelay: 1500,
+    loop: true
+  });
 
-  // Particles.js
-  tsParticles.load("particles-js", {
-    particles: { number: { value: 50 }, size: { value: 3 }, move: { speed: 2 }, line_linked: { enable: true, distance: 150 } }
+  // Initialize AOS
+  AOS.init({ duration: 1000 });
+
+  // tsParticles background
+  tsParticles.load("tsparticles", {
+    fpsLimit: 60,
+    interactivity: { events: { onHover: { enable: true, mode: "repulse" } }, modes: { repulse: { distance: 100 } } },
+    particles: { color: { value: "#3b82f6" }, links: { enable: true, color: "#3b82f6" }, move: { enable: true, speed: 2 } }
   });
 </script>
+
 </body>
 </html>
