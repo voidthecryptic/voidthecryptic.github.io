@@ -6,88 +6,72 @@
 <title>Arsalan Masoodi | Portfolio</title>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 <style>
 :root {
-  --bg: #f5f5f5;
-  --text: #222;
-  --card-bg: #fff;
-  --nav-bg: #fff;
-
-  --bg-dark: #0f172a;
-  --text-dark: #e2e8f0;
-  --card-bg-dark: #1e293b;
-  --nav-bg-dark: #1e293b;
-
-  --primary-color: #3b82f6;
-  --secondary-color: #6366f1;
-
-  --hero-bg: linear-gradient(145deg, #e0f7fa, #fff8e1);
-  --hero-bg-dark: linear-gradient(145deg, #1e293b, #0f172a);
-  --hero-text: #222;
-  --hero-text-dark: #e2e8f0;
+  --bg: #10141b;
+  --text: #e0e0e0;
+  --card-bg: #1f242d;
+  --nav-bg: #1f242d;
+  --primary: #00f7ff;
+  --secondary: #ff00d6;
+  --accent: #39ff14;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); scroll-behavior: smooth; transition: all 0.3s; }
-body.dark { background: var(--bg-dark); color: var(--text-dark); }
+* { box-sizing: border-box; margin:0; padding:0; }
+body { font-family: 'Arial', sans-serif; background: var(--bg); color: var(--text); scroll-behavior: smooth; transition: all 0.3s; }
+body.dark { --bg:#10141b; --text:#e0e0e0; --card-bg:#1f242d; --nav-bg:#1f242d; }
 
 nav {
-  background: var(--nav-bg); position: sticky; top: 0; z-index: 100; width: 100%;
-  padding: 15px 30px; display: flex; justify-content: space-between; align-items: center;
-  box-shadow: 0px 2px 10px rgba(0,0,0,0.15); transition: background 0.3s;
+  background: var(--nav-bg); position: sticky; top:0; z-index:100; width:100%;
+  padding:15px 30px; display:flex; justify-content:space-between; align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,0.3);
 }
-body.dark nav { background: var(--nav-bg-dark); }
-nav a { color: inherit; text-decoration: none; margin: 0 12px; font-weight: bold; position: relative; }
-nav a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 3px; background: var(--primary-color); border-radius: 3px; }
-#darkToggle { cursor: pointer; font-size: 28px; }
+nav a { color: inherit; text-decoration:none; margin:0 12px; font-weight:bold; position:relative; }
+nav a.active::after { content:''; position:absolute; bottom:-5px; left:0; width:100%; height:3px; background: var(--primary); border-radius:3px; }
+#darkToggle { cursor:pointer; font-size:28px; }
 
 .hero {
-  height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-  background: var(--hero-bg); color: var(--hero-text); text-align: center; position: relative; overflow: hidden;
-  transition: background 0.3s, color 0.3s;
+  height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+  position:relative; text-align:center; overflow:hidden;
 }
-body.dark .hero { background: var(--hero-bg-dark); color: var(--hero-text-dark); }
-
-.hero h1 { font-size: 56px; margin-bottom: 15px; font-weight: bold; }
-.hero h2 { font-size: 22px; opacity: 0.8; margin-bottom: 25px; }
-
+.hero h1 { font-size:56px; color: var(--primary); margin-bottom:10px; text-shadow:0 0 10px var(--primary); }
+.hero h2 { font-size:22px; color: var(--accent); margin-bottom:25px; text-shadow:0 0 8px var(--accent); }
 .buttons a {
-  text-decoration: none; background: var(--primary-color); color: white; padding: 12px 20px; margin: 10px; border-radius: 8px; font-weight: bold; transition: transform 0.3s, background 0.3s;
+  text-decoration:none; background:var(--primary); color:#000; padding:12px 22px; margin:10px; border-radius:10px; font-weight:bold; transition: all 0.3s;
 }
-.buttons a:hover { transform: scale(1.05); background: var(--secondary-color); }
+.buttons a:hover { background: var(--accent); color:#000; box-shadow:0 0 20px var(--accent),0 0 40px var(--primary); transform: scale(1.1); }
 
-.section-title { text-align: center; font-size: 32px; font-weight: bold; margin: 60px 0 30px 0; }
+.section-title { text-align:center; font-size:32px; font-weight:bold; margin:60px 0 30px 0; color: var(--primary); text-shadow:0 0 6px var(--primary); }
 
-.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; padding: 0 30px 50px 30px; }
-.flip-card { background-color: transparent; perspective: 1000px; }
-.flip-card-inner { position: relative; width: 100%; height: 320px; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; border-radius: 15px; }
-.flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
-.flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
-.flip-card-front { background: var(--card-bg); display: flex; flex-direction: column; align-items: center; justify-content: center; }
-body.dark .flip-card-front { background: var(--card-bg-dark); }
-.flip-card-front img { width: 80%; border-radius: 10px; }
-.flip-card-back { background: var(--secondary-color); color: white; transform: rotateY(180deg); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+.projects { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:30px; padding:0 30px 50px 30px; }
+.flip-card { perspective:1000px; }
+.flip-card-inner { position:relative; width:100%; height:340px; text-align:center; transition: transform 0.8s; transform-style:preserve-3d; border-radius:15px; }
+.flip-card:hover .flip-card-inner { transform:rotateY(180deg); }
+.flip-card-front, .flip-card-back { position:absolute; width:100%; height:100%; backface-visibility:hidden; border-radius:15px; box-shadow:0 0 15px rgba(0,255,255,0.2),0 0 25px rgba(255,0,214,0.1); }
+.flip-card-front { background:var(--card-bg); display:flex; align-items:center; justify-content:center; }
+.flip-card-front img { width:80%; border-radius:12px; }
+.flip-card-back { background:var(--card-bg); color:var(--text); transform:rotateY(180deg); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px; text-shadow:0 0 8px var(--primary); }
 
-.skills { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 0 20px 50px 20px; }
-.skill-bar { width: 200px; background: var(--card-bg); border-radius: 10px; overflow: hidden; box-shadow: 0 3px 15px rgba(0,0,0,0.1); }
-body.dark .skill-bar { background: var(--card-bg-dark); }
-.skill-fill { height: 20px; background: var(--primary-color); width: 0%; line-height: 20px; color: white; text-align: center; transition: width 1.5s; }
+.skills { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:0 20px 50px 20px; }
+.skill-bar { width:220px; background: #222; border-radius:10px; overflow:hidden; box-shadow:0 0 10px #00f7ff; }
+.skill-fill { height:22px; background: var(--primary); width:0%; line-height:22px; color:#000; text-align:center; font-weight:bold; transition: width 1.5s; }
 
-.pdf-box { display: flex; justify-content: center; margin: 40px 0; }
-iframe { width: 80%; height: 80vh; border: none; box-shadow: 0 5px 20px rgba(0,0,0,0.25); }
+.pdf-box { display:flex; justify-content:center; margin:40px 0; }
+iframe { width:80%; height:80vh; border:none; box-shadow:0 0 25px rgba(0,255,255,0.3); border-radius:12px; }
 
-.contact { width: 90%; max-width: 600px; margin: auto; background: var(--card-bg); padding: 25px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); margin-bottom: 50px; }
-body.dark .contact { background: var(--card-bg-dark); }
-.contact input, .contact textarea { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: none; font-size: 16px; }
-.contact button { padding: 12px 18px; background: var(--primary-color); border-radius: 8px; color: white; border: none; font-size: 16px; cursor: pointer; transition: 0.2s; }
-.contact button:hover { transform: scale(1.05); }
+.contact { width:90%; max-width:600px; margin:auto; background:var(--card-bg); padding:25px; border-radius:12px; box-shadow:0 0 20px rgba(0,255,255,0.2); margin-bottom:50px; }
+.contact input, .contact textarea { width:100%; padding:12px; margin:10px 0; border-radius:8px; border:none; font-size:16px; background:#222; color:#fff; }
+.contact button { padding:12px 18px; background:var(--primary); border-radius:8px; color:#000; border:none; font-size:16px; cursor:pointer; transition:0.2s; }
+.contact button:hover { transform: scale(1.05); box-shadow:0 0 20px var(--accent),0 0 40px var(--primary); }
 
-footer { text-align: center; padding: 20px; background: #1f2937; color: white; }
+footer { text-align:center; padding:20px; color:#0ff; }
 
-[data-aos] { opacity: 0; transition-property: opacity, transform; transition-duration: 1s; }
+canvas#circuit { position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
+
+[data-aos] { opacity:0; transition-property: opacity, transform; transition-duration:1s; }
 </style>
 </head>
-
 <body>
 
 <nav>
@@ -102,6 +86,7 @@ footer { text-align: center; padding: 20px; background: #1f2937; color: white; }
 </nav>
 
 <div class="hero" id="home">
+  <canvas id="circuit"></canvas>
   <h1>Peerzada Arsalan Masoodi</h1>
   <h2>Electronics • VLSI • Embedded Systems</h2>
   <div class="buttons">
@@ -112,36 +97,11 @@ footer { text-align: center; padding: 20px; background: #1f2937; color: white; }
 
 <div class="section-title" id="projects">Projects</div>
 <div class="projects">
-  <div class="flip-card" data-aos="fade-up">
-    <div class="flip-card-inner">
-      <div class="flip-card-front"><img src="rca.png" alt="Ripple Carry Adder"></div>
-      <div class="flip-card-back"><h3>Ripple Carry Adder</h3><p>Cadence Virtuoso, Spectre, GDSII</p></div>
-    </div>
-  </div>
-  <div class="flip-card" data-aos="fade-up" data-aos-delay="100">
-    <div class="flip-card-inner">
-      <div class="flip-card-front"><img src="soldering.png" alt="Digital Soldering Station"></div>
-      <div class="flip-card-back"><h3>Digital Soldering Station</h3><p>LTspice, KiCAD, Arduino</p></div>
-    </div>
-  </div>
-  <div class="flip-card" data-aos="fade-up" data-aos-delay="200">
-    <div class="flip-card-inner">
-      <div class="flip-card-front"><img src="antenna.png" alt="Patch Antenna"></div>
-      <div class="flip-card-back"><h3>Microstrip Patch Antenna</h3><p>CST Studio, PCB Fabrication</p></div>
-    </div>
-  </div>
-  <div class="flip-card" data-aos="fade-up" data-aos-delay="300">
-    <div class="flip-card-inner">
-      <div class="flip-card-front"><img src="snn.png" alt="SNN"></div>
-      <div class="flip-card-back"><h3>Spiking Neural Network</h3><p>OpenSpike, Icarus Verilog</p></div>
-    </div>
-  </div>
-  <div class="flip-card" data-aos="fade-up" data-aos-delay="400">
-    <div class="flip-card-inner">
-      <div class="flip-card-front"><img src="amp.png" alt="Audio Amplifier"></div>
-      <div class="flip-card-back"><h3>Audio Amplifier</h3><p>LTspice, KiCAD</p></div>
-    </div>
-  </div>
+  <div class="flip-card" data-aos="fade-up"><div class="flip-card-inner"><div class="flip-card-front"><img src="rca.png" alt="RCA"></div><div class="flip-card-back"><h3>Ripple Carry Adder</h3><p>Cadence Virtuoso, Spectre, GDSII</p></div></div></div>
+  <div class="flip-card" data-aos="fade-up" data-aos-delay="100"><div class="flip-card-inner"><div class="flip-card-front"><img src="soldering.png" alt="Soldering"></div><div class="flip-card-back"><h3>Digital Soldering Station</h3><p>LTspice, KiCAD, Arduino</p></div></div></div>
+  <div class="flip-card" data-aos="fade-up" data-aos-delay="200"><div class="flip-card-inner"><div class="flip-card-front"><img src="antenna.png" alt="Antenna"></div><div class="flip-card-back"><h3>Microstrip Patch Antenna</h3><p>CST Studio, PCB Fabrication</p></div></div></div>
+  <div class="flip-card" data-aos="fade-up" data-aos-delay="300"><div class="flip-card-inner"><div class="flip-card-front"><img src="snn.png" alt="SNN"></div><div class="flip-card-back"><h3>Spiking Neural Network</h3><p>OpenSpike, Icarus Verilog</p></div></div></div>
+  <div class="flip-card" data-aos="fade-up" data-aos-delay="400"><div class="flip-card-inner"><div class="flip-card-front"><img src="amp.png" alt="Amp"></div><div class="flip-card-back"><h3>Audio Amplifier</h3><p>LTspice, KiCAD</p></div></div></div>
 </div>
 
 <div class="section-title" id="skills">Skills</div>
@@ -153,24 +113,21 @@ footer { text-align: center; padding: 20px; background: #1f2937; color: white; }
 </div>
 
 <div class="section-title" id="resume">Resume</div>
-<div class="pdf-box">
-  <iframe src="Arsalan_resume.pdf"></iframe>
-</div>
+<div class="pdf-box"><iframe src="Arsalan_resume.pdf"></iframe></div>
 
 <div class="section-title" id="contact">Contact Me</div>
 <div class="contact">
-  <form action="https://formspree.io/f/xyzybqyb" method="POST">
-    <input type="text" name="name" placeholder="Your name" required>
-    <input type="email" name="email" placeholder="Your email" required>
-    <textarea name="message" rows="5" placeholder="Your message..." required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+<form action="https://formspree.io/f/xyzybqyb" method="POST">
+  <input type="text" name="name" placeholder="Your name" required>
+  <input type="email" name="email" placeholder="Your email" required>
+  <textarea name="message" rows="5" placeholder="Your message..." required></textarea>
+  <button type="submit">Send Message</button>
+</form>
 </div>
 
 <footer>© 2025 Peerzada Arsalan Masoodi • Portfolio</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.1/tsparticles.bundle.min.js"></script>
 <script>
 AOS.init();
 
@@ -178,41 +135,68 @@ AOS.init();
 const toggle = document.getElementById('darkToggle');
 toggle.onclick = () => document.body.classList.toggle('dark');
 
-// Skill bar animation
+// Skill bars
 const skillFills = document.querySelectorAll('.skill-fill');
-window.addEventListener('scroll', () => {
-  skillFills.forEach(bar => {
+window.addEventListener('scroll', ()=> {
+  skillFills.forEach(bar=>{
     const rect = bar.getBoundingClientRect();
     if(rect.top < window.innerHeight) bar.style.width = bar.dataset.fill;
   });
 });
 
-// Scroll-spy navbar
+// Scroll-spy
 const navLinks = document.querySelectorAll('.nav-link');
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', ()=>{
   let fromTop = window.scrollY + 120;
-  navLinks.forEach(link => {
+  navLinks.forEach(link=>{
     const section = document.querySelector(link.getAttribute('href'));
-    if(section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
-      navLinks.forEach(l => l.classList.remove('active'));
+    if(section.offsetTop <= fromTop && section.offsetTop+section.offsetHeight>fromTop){
+      navLinks.forEach(l=>l.classList.remove('active'));
       link.classList.add('active');
     }
   });
 });
 
-// Particle background for hero
-tsParticles.load("hero", {
-  fullScreen: { enable: false },
-  particles: {
-    number: { value: 50 },
-    color: { value: ["#3b82f6","#6366f1","#f59e0b","#10b981"] },
-    shape: { type: "circle" },
-    opacity: { value: 0.15 },
-    size: { value: 2 },
-    move: { enable: true, speed: 0.5 },
-    links: { enable: true, distance: 120, color: "#ffffff", opacity: 0.1, width: 1 }
+// Circuit particle background
+const canvas = document.getElementById('circuit');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+
+let nodes = [];
+for(let i=0;i<80;i++){
+  nodes.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, dx:(Math.random()-0.5)*0.3, dy:(Math.random()-0.5)*0.3});
+}
+
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  // draw connections
+  for(let i=0;i<nodes.length;i++){
+    for(let j=i+1;j<nodes.length;j++){
+      let dist=Math.hypot(nodes[i].x-nodes[j].x, nodes[i].y-nodes[j].y);
+      if(dist<120){
+        ctx.strokeStyle='rgba(0,255,255,'+(1-dist/120)*0.3+')';
+        ctx.lineWidth=1;
+        ctx.beginPath();
+        ctx.moveTo(nodes[i].x,nodes[i].y);
+        ctx.lineTo(nodes[j].x,nodes[j].y);
+        ctx.stroke();
+      }
+    }
   }
-});
+  // draw nodes
+  for(let n of nodes){
+    ctx.fillStyle='rgba(0,255,255,0.8)';
+    ctx.beginPath();
+    ctx.arc(n.x,n.y,3,0,Math.PI*2);
+    ctx.fill();
+    n.x+=n.dx; n.y+=n.dy;
+    if(n.x<0||n.x>canvas.width) n.dx*=-1;
+    if(n.y<0||n.y>canvas.height) n.dy*=-1;
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+window.addEventListener('resize', ()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight;});
 </script>
 </body>
 </html>
