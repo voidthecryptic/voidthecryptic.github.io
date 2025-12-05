@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arsalan Masoodi | Portfolio</title>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -20,6 +20,11 @@
 
   --primary-color: #3b82f6;
   --secondary-color: #6366f1;
+
+  --hero-bg: linear-gradient(135deg, #3b82f6, #6366f1);
+  --hero-bg-dark: linear-gradient(135deg, #1e293b, #0f172a);
+  --hero-text: white;
+  --hero-text-dark: #e2e8f0;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,20 +39,23 @@ nav {
 body.dark nav { background: var(--nav-bg-dark); }
 nav a { color: inherit; text-decoration: none; margin: 0 12px; font-weight: bold; position: relative; }
 nav a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 3px; background: var(--primary-color); border-radius: 3px; }
-
 #darkToggle { cursor: pointer; font-size: 28px; }
 
 .hero {
   height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: white; text-align: center; position: relative; overflow: hidden;
+  background: var(--hero-bg); color: var(--hero-text); text-align: center; position: relative; overflow: hidden;
+  transition: background 0.3s, color 0.3s;
 }
+body.dark .hero { background: var(--hero-bg-dark); color: var(--hero-text-dark); }
+
 .hero h1 {
-  font-size: 60px; margin-bottom: 15px; white-space: nowrap; overflow: hidden; border-right: 0.15em solid orange;
+  font-size: 60px; margin-bottom: 15px; overflow: hidden; border-right: 0.15em solid orange;
+  white-space: nowrap; display: inline-block; max-width: 90%;
   animation: typing 3s steps(30) 1, blink 0.75s step-end infinite;
 }
-@keyframes typing { from { width: 0; } to { width: 22ch; } }
+@keyframes typing { from { width: 0; } to { width: 100%; } }
 @keyframes blink { 50% { border-color: transparent; } }
+
 .hero h2 { font-size: 22px; opacity: 0.85; }
 
 .buttons a {
@@ -84,6 +92,7 @@ body.dark .contact { background: var(--card-bg-dark); }
 footer { text-align: center; padding: 20px; background: #1f2937; color: white; }
 
 [data-aos] { opacity: 0; transition-property: opacity, transform; transition-duration: 1s; }
+
 </style>
 </head>
 
@@ -100,7 +109,8 @@ footer { text-align: center; padding: 20px; background: #1f2937; color: white; }
   <span id="darkToggle" class="material-icons">dark_mode</span>
 </nav>
 
-<div class="hero" id="home">
+<div class="hero" id="home"></div>
+<div class="hero">
   <h1>Peerzada Arsalan Masoodi</h1>
   <h2>Electronics • VLSI • Embedded Systems</h2>
   <div class="buttons">
@@ -127,6 +137,18 @@ footer { text-align: center; padding: 20px; background: #1f2937; color: white; }
     <div class="flip-card-inner">
       <div class="flip-card-front"><img src="antenna.png" alt="Patch Antenna"></div>
       <div class="flip-card-back"><h3>Microstrip Patch Antenna</h3><p>CST Studio, PCB Fabrication</p></div>
+    </div>
+  </div>
+  <div class="flip-card" data-aos="fade-up" data-aos-delay="300">
+    <div class="flip-card-inner">
+      <div class="flip-card-front"><img src="snn.png" alt="SNN"></div>
+      <div class="flip-card-back"><h3>Spiking Neural Network</h3><p>OpenSpike, Icarus Verilog</p></div>
+    </div>
+  </div>
+  <div class="flip-card" data-aos="fade-up" data-aos-delay="400">
+    <div class="flip-card-inner">
+      <div class="flip-card-front"><img src="amp.png" alt="Audio Amplifier"></div>
+      <div class="flip-card-back"><h3>Audio Amplifier</h3><p>LTspice, KiCAD</p></div>
     </div>
   </div>
 </div>
@@ -160,9 +182,12 @@ footer { text-align: center; padding: 20px; background: #1f2937; color: white; }
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.1/tsparticles.bundle.min.js"></script>
 <script>
 AOS.init();
+
+// Dark mode toggle
 const toggle = document.getElementById('darkToggle');
 toggle.onclick = () => document.body.classList.toggle('dark');
 
+// Skill bar animation
 const skillFills = document.querySelectorAll('.skill-fill');
 window.addEventListener('scroll', () => {
   skillFills.forEach(bar => {
@@ -171,6 +196,7 @@ window.addEventListener('scroll', () => {
   });
 });
 
+// Scroll-spy navbar
 const navLinks = document.querySelectorAll('.nav-link');
 window.addEventListener('scroll', () => {
   let fromTop = window.scrollY + 100;
@@ -183,9 +209,18 @@ window.addEventListener('scroll', () => {
   });
 });
 
+// Particle background for hero
 tsParticles.load("hero", {
   fullScreen: { enable: false },
-  particles: { number: { value: 50 }, color: { value: "#ffffff" }, shape: { type: "circle" }, opacity: { value: 0.2 }, size: { value: 2 }, move: { enable: true, speed: 0.5 } }
+  particles: {
+    number: { value: 60 },
+    color: { value: "#ffffff" },
+    shape: { type: "circle" },
+    opacity: { value: 0.15 },
+    size: { value: 2 },
+    move: { enable: true, speed: 0.5 },
+    links: { enable: true, distance: 100, color: "#ffffff", opacity: 0.1, width: 1 }
+  }
 });
 </script>
 </body>
