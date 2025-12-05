@@ -8,6 +8,15 @@
 <!-- Google Icons -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+<!-- AOS Animate On Scroll -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Typed.js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<!-- Particles.js -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.0/tsparticles.min.js"></script>
+
 <style>
   :root {
     --bg: #f5f5f5;
@@ -15,7 +24,6 @@
     --card-bg: white;
     --nav-bg: white;
 
-    /* Dark Mode */
     --bg-dark: #0f172a;
     --text-dark: #e2e8f0;
     --card-bg-dark: #1e293b;
@@ -24,11 +32,11 @@
 
   body {
     margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
     transition: background 0.3s, color 0.3s;
+    scroll-behavior: smooth;
   }
 
   body.dark {
@@ -36,7 +44,6 @@
     color: var(--text-dark);
   }
 
-  /* NAVBAR */
   nav {
     background: var(--nav-bg);
     position: sticky;
@@ -46,12 +53,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0px 2px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
     transition: background 0.3s;
+    z-index: 1000;
   }
-  body.dark nav {
-    background: var(--nav-bg-dark);
-  }
+  body.dark nav { background: var(--nav-bg-dark); }
   nav a {
     color: inherit;
     text-decoration: none;
@@ -59,31 +65,26 @@
     font-weight: bold;
   }
 
-  /* Dark Mode Toggle */
-  #darkToggle {
-    cursor: pointer;
-    font-size: 28px;
-  }
+  #darkToggle { cursor: pointer; font-size: 28px; }
 
-  /* HERO */
   .hero {
-    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    position: relative;
     color: white;
     text-align: center;
-    padding: 90px 20px;
-    animation: fadeIn 1.3s ease-in-out;
-  }
-  .hero h1 {
-    font-size: 48px;
-    margin: 0;
-  }
-  .hero h2 {
-    font-size: 22px;
-    opacity: 0.9;
-    font-weight: lighter;
+    padding: 120px 20px;
+    overflow: hidden;
   }
 
-  /* Buttons */
+  #particles-js { position: absolute; top:0; left:0; width:100%; height:100%; z-index:0; }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 { font-size: 48px; margin: 0; }
+  .hero h2 { font-size: 22px; opacity: 0.9; font-weight: lighter; }
+
   .buttons a {
     text-decoration: none;
     background: white;
@@ -95,109 +96,57 @@
     font-weight: bold;
     transition: 0.2s;
   }
-  .buttons a:hover {
-    background: #dbeafe;
-  }
+  .buttons a:hover { background: #dbeafe; }
 
-  /* Section Title */
   .section-title {
     text-align: center;
     margin-top: 50px;
     font-size: 30px;
     font-weight: bold;
-    animation: fadeIn 1s ease;
   }
 
-  /* PROJECT CARDS */
   .projects {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
     padding: 30px;
   }
+
   .card {
     background: var(--card-bg);
     padding: 15px;
     border-radius: 12px;
-    box-shadow: 0px 3px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 3px 15px rgba(0,0,0,0.15);
     transition: 0.3s ease;
-    animation: fadeInUp 1.1s ease;
   }
-  body.dark .card {
-    background: var(--card-bg-dark);
-  }
-  .card:hover {
-    transform: translateY(-5px);
-  }
-  .card img {
-    width: 100%;
-    border-radius: 10px;
-  }
-  .card h3 {
-    margin-bottom: 5px;
-  }
+  body.dark .card { background: var(--card-bg-dark); }
+  .card:hover { transform: translateY(-5px); }
+  .card img { width: 100%; border-radius: 10px; }
+  .card h3 { margin-bottom: 5px; }
 
-  /* Resume viewer */
-  .pdf-box {
-    display: flex;
-    justify-content: center;
-    margin: 40px 0;
-    animation: fadeIn 1s ease;
-  }
-  iframe {
-    width: 80%;
-    height: 95vh;
-    border: none;
-    box-shadow: 0px 5px 20px rgba(0,0,0,0.25);
-  }
+  .pdf-box { display: flex; justify-content: center; margin: 40px 0; }
+  iframe { width: 80%; height: 95vh; border: none; box-shadow: 0 5px 20px rgba(0,0,0,0.25); }
 
-  /* CONTACT FORM */
   .contact {
-    width: 90%;
-    max-width: 600px;
-    margin: auto;
-    background: var(--card-bg);
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0px 5px 20px rgba(0,0,0,0.15);
-    animation: fadeInUp 1s ease;
+    width: 90%; max-width: 600px; margin: auto;
+    background: var(--card-bg); padding: 25px; border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
   }
-  body.dark .contact {
-    background: var(--card-bg-dark);
-  }
+  body.dark .contact { background: var(--card-bg-dark); }
   .contact input, .contact textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: none;
-    font-size: 16px;
+    width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: none; font-size: 16px;
   }
   .contact button {
-    padding: 12px 18px;
-    background: #3b82f6;
-    border-radius: 8px;
-    color: white;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
+    padding: 12px 18px; background: #3b82f6; border-radius: 8px;
+    color: white; border: none; font-size: 16px; cursor: pointer;
   }
 
-  /* FOOTER */
-  footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-    background: #1f2937;
-    color: white;
-  }
+  footer { text-align: center; padding: 20px; margin-top: 50px; background: #1f2937; color: white; }
 
-  /* Animations */
-  @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-  @keyframes fadeInUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+  [data-aos] { opacity: 0; transition-property: opacity, transform; }
+
 </style>
 </head>
-
 <body>
 
 <!-- NAVBAR -->
@@ -208,57 +157,39 @@
     <a href="#resume">Resume</a>
     <a href="#contact">Contact</a>
   </div>
-
   <span id="darkToggle" class="material-icons">dark_mode</span>
 </nav>
 
 <!-- HERO -->
 <div class="hero" id="home">
-  <h1>Arsalan Masoodi</h1>
-  <h2>Electronics • VLSI • Chip Design • Embedded Systems</h2>
-
-  <div class="buttons">
-    <a href="Arsalan_resume.pdf" target="_blank">📄 View Resume</a>
-    <a href="https://github.com/arsalanmasoodi" target="_blank">🐙 GitHub</a>
+  <div id="particles-js"></div>
+  <div class="hero-content">
+    <h1 id="typed-name"></h1>
+    <h2>Electronics • VLSI • Chip Design • Embedded Systems</h2>
+    <div class="buttons">
+      <a href="Arsalan_resume.pdf" target="_blank">📄 View Resume</a>
+      <a href="https://github.com/arsalanmasoodi" target="_blank">🐙 GitHub</a>
+    </div>
   </div>
 </div>
 
 <!-- PROJECTS -->
-<div class="section-title" id="projects">Projects</div>
-
+<div class="section-title" id="projects" data-aos="fade-up">Projects</div>
 <div class="projects">
-
-  <div class="card">
-    <img src="rca.png" alt="RCA Project">
-    <h3>Ripple Carry Adder</h3>
-    <p>Custom transistor-level RCA in Cadence Virtuoso. Simulated with Spectre, generated GDSII.</p>
-  </div>
-
-  <div class="card">
-    <img src="amp.png" alt="Audio Amplifier">
-    <h3>Audio Amplifier</h3>
-    <p>LTspice simulations + KiCad PCB. Frequency response optimized for clean audio gain.</p>
-  </div>
-
-  <div class="card">
-    <img src="snn.png" alt="SNN">
-    <h3>Spiking Neuron Model</h3>
-    <p>LIF neuron simulation for custom NPU prototype. RTL experiments in Verilog.</p>
-  </div>
-
+  <div class="card" data-aos="fade-up"><img src="rca.png" alt="RCA"><h3>Ripple Carry Adder</h3><p>Custom transistor-level RCA in Cadence Virtuoso. Simulated with Spectre, generated GDSII.</p></div>
+  <div class="card" data-aos="fade-up"><img src="amp.png" alt="Amp"><h3>Audio Amplifier</h3><p>LTspice simulations + KiCad PCB. Frequency response optimized for clean audio gain.</p></div>
+  <div class="card" data-aos="fade-up"><img src="snn.png" alt="SNN"><h3>Spiking Neuron Model</h3><p>LIF neuron simulation for custom NPU prototype. RTL experiments in Verilog.</p></div>
 </div>
 
 <!-- RESUME -->
-<div class="section-title" id="resume">Resume</div>
-
-<div class="pdf-box">
+<div class="section-title" id="resume" data-aos="fade-up">Resume</div>
+<div class="pdf-box" data-aos="fade-up">
   <iframe src="Arsalan_resume.pdf"></iframe>
 </div>
 
-<!-- CONTACT FORM -->
-<div class="section-title" id="contact">Contact Me</div>
-
-<div class="contact">
+<!-- CONTACT -->
+<div class="section-title" id="contact" data-aos="fade-up">Contact Me</div>
+<div class="contact" data-aos="fade-up">
   <form action="https://formspree.io/f/xyzybqyb" method="POST">
     <input type="text" name="name" placeholder="Your name" required>
     <input type="email" name="email" placeholder="Your email" required>
@@ -267,15 +198,25 @@
   </form>
 </div>
 
-<!-- FOOTER -->
 <footer>
   © 2025 Arsalan Masoodi • Portfolio Website
 </footer>
 
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
+  AOS.init({ duration: 1000, once: true });
+
   const toggle = document.getElementById('darkToggle');
   toggle.onclick = () => document.body.classList.toggle('dark');
-</script>
 
+  // Typewriter effect
+  new Typed('#typed-name', { strings: ["Arsalan Masoodi"], typeSpeed: 100, backSpeed: 50, loop: false });
+
+  // Particles.js
+  tsParticles.load("particles-js", {
+    particles: { number: { value: 50 }, size: { value: 3 }, move: { speed: 2 }, line_linked: { enable: true, distance: 150 } }
+  });
+</script>
 </body>
 </html>
