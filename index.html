@@ -10,8 +10,8 @@
 :root {
   --bg: #f5f5f5;
   --text: #222;
-  --card-bg: white;
-  --nav-bg: white;
+  --card-bg: #fff;
+  --nav-bg: #fff;
 
   --bg-dark: #0f172a;
   --text-dark: #e2e8f0;
@@ -21,14 +21,14 @@
   --primary-color: #3b82f6;
   --secondary-color: #6366f1;
 
-  --hero-bg: linear-gradient(135deg, #3b82f6, #6366f1);
-  --hero-bg-dark: linear-gradient(135deg, #1e293b, #0f172a);
-  --hero-text: white;
+  --hero-bg: linear-gradient(145deg, #e0f7fa, #fff8e1);
+  --hero-bg-dark: linear-gradient(145deg, #1e293b, #0f172a);
+  --hero-text: #222;
   --hero-text-dark: #e2e8f0;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); scroll-behavior: smooth; transition: background 0.3s, color 0.3s; }
+body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); scroll-behavior: smooth; transition: all 0.3s; }
 body.dark { background: var(--bg-dark); color: var(--text-dark); }
 
 nav {
@@ -48,20 +48,13 @@ nav a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; wi
 }
 body.dark .hero { background: var(--hero-bg-dark); color: var(--hero-text-dark); }
 
-.hero h1 {
-  font-size: 60px; margin-bottom: 15px; overflow: hidden; border-right: 0.15em solid orange;
-  white-space: nowrap; display: inline-block; max-width: 90%;
-  animation: typing 3s steps(30) 1, blink 0.75s step-end infinite;
-}
-@keyframes typing { from { width: 0; } to { width: 100%; } }
-@keyframes blink { 50% { border-color: transparent; } }
-
-.hero h2 { font-size: 22px; opacity: 0.85; }
+.hero h1 { font-size: 56px; margin-bottom: 15px; font-weight: bold; }
+.hero h2 { font-size: 22px; opacity: 0.8; margin-bottom: 25px; }
 
 .buttons a {
-  text-decoration: none; background: white; color: var(--primary-color); padding: 12px 20px; margin: 10px; border-radius: 8px; font-weight: bold; transition: transform 0.3s, background 0.3s;
+  text-decoration: none; background: var(--primary-color); color: white; padding: 12px 20px; margin: 10px; border-radius: 8px; font-weight: bold; transition: transform 0.3s, background 0.3s;
 }
-.buttons a:hover { transform: scale(1.05); background: #dbeafe; }
+.buttons a:hover { transform: scale(1.05); background: var(--secondary-color); }
 
 .section-title { text-align: center; font-size: 32px; font-weight: bold; margin: 60px 0 30px 0; }
 
@@ -78,7 +71,7 @@ body.dark .flip-card-front { background: var(--card-bg-dark); }
 .skills { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 0 20px 50px 20px; }
 .skill-bar { width: 200px; background: var(--card-bg); border-radius: 10px; overflow: hidden; box-shadow: 0 3px 15px rgba(0,0,0,0.1); }
 body.dark .skill-bar { background: var(--card-bg-dark); }
-.skill-fill { height: 20px; background: var(--primary-color); width: 0%; line-height: 20px; color: white; text-align: center; }
+.skill-fill { height: 20px; background: var(--primary-color); width: 0%; line-height: 20px; color: white; text-align: center; transition: width 1.5s; }
 
 .pdf-box { display: flex; justify-content: center; margin: 40px 0; }
 iframe { width: 80%; height: 80vh; border: none; box-shadow: 0 5px 20px rgba(0,0,0,0.25); }
@@ -92,7 +85,6 @@ body.dark .contact { background: var(--card-bg-dark); }
 footer { text-align: center; padding: 20px; background: #1f2937; color: white; }
 
 [data-aos] { opacity: 0; transition-property: opacity, transform; transition-duration: 1s; }
-
 </style>
 </head>
 
@@ -109,8 +101,7 @@ footer { text-align: center; padding: 20px; background: #1f2937; color: white; }
   <span id="darkToggle" class="material-icons">dark_mode</span>
 </nav>
 
-<div class="hero" id="home"></div>
-<div class="hero">
+<div class="hero" id="home">
   <h1>Peerzada Arsalan Masoodi</h1>
   <h2>Electronics • VLSI • Embedded Systems</h2>
   <div class="buttons">
@@ -199,7 +190,7 @@ window.addEventListener('scroll', () => {
 // Scroll-spy navbar
 const navLinks = document.querySelectorAll('.nav-link');
 window.addEventListener('scroll', () => {
-  let fromTop = window.scrollY + 100;
+  let fromTop = window.scrollY + 120;
   navLinks.forEach(link => {
     const section = document.querySelector(link.getAttribute('href'));
     if(section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
@@ -213,13 +204,13 @@ window.addEventListener('scroll', () => {
 tsParticles.load("hero", {
   fullScreen: { enable: false },
   particles: {
-    number: { value: 60 },
-    color: { value: "#ffffff" },
+    number: { value: 50 },
+    color: { value: ["#3b82f6","#6366f1","#f59e0b","#10b981"] },
     shape: { type: "circle" },
     opacity: { value: 0.15 },
     size: { value: 2 },
     move: { enable: true, speed: 0.5 },
-    links: { enable: true, distance: 100, color: "#ffffff", opacity: 0.1, width: 1 }
+    links: { enable: true, distance: 120, color: "#ffffff", opacity: 0.1, width: 1 }
   }
 });
 </script>
