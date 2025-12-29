@@ -20,39 +20,40 @@ redirect_from:
 
 # Work experience
 ---
-* Research Intern at NIT Srinagar :Summer 2024
+* **Research Intern at NIT Srinagar: Summer 2024**
   * Assisted in semiconductor device research under *Dr. Sheikh Amir Ahsan* with focus on MOSFET physics and microelectronics
   * Analyzed I–V characteristics, small-signal models, and transient behavior using LTspice
   * Connected device-level insights to CMOS VLSI design, strengthening understanding of leakage control, threshold tuning, and layout implications
     
   
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+## Technical Skills
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+**Languages:** Python · C++ · C · MATLAB · LaTeX · HTML  
+**HDL / Embedded:** Verilog · Embedded C · Assembly  
+**Tools / EDA:** LTspice · Vivado · QuestaSim · Cadence Virtuoso · OpenLANE · Yosys · KiCad · EagleCAD · Proteus  
+
+---
+
+## Certifications & Memberships
+
+**NPTEL Certifications:**  
+- [🏅 Digital IC Design (Top 5%)](https://nptel.ac.in/noc/E_Certificate/NPTEL25EE21S64770049504263377)  
+- [🏅 Computer Networks and Internet Protocol (Top 5%)](https://nptel.ac.in/noc/E_Certificate/NPTEL25CS15S124770045304263377)  
+- [Computer Architecture and Organization](https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25CS154S115890005310230442)  
+- [🏅 VLSI RTL to GDS (Top 5%)](https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25EE106S65890050110230442)  
+
+**Memberships:** IEEE Computer Society · IEEE Solid-State Circuits Society
+
+
+  ## Leadership & Extracurricular Activities
+
+### Tarang — Core Member  
+**Shri Mata Vaishno Devi University** · Dec 2024 – Present  
+- Co-managed and organized technical events for the university technical fest **EKATVA–2025**.  
+- Designed circuits and challenges for a PCB design competition.  
+- Coordinated a variety of student-led activities, including a boat race, fostering teamwork and problem-solving skills.  
+
+### [Vikalp](https://vikalp.smvdu.ac.in/) — Volunteer  
+**Shri Mata Vaishno Devi University** · Apr 2023 – Present  
+- Volunteered in a student-led initiative providing **academic support to underprivileged children** from local communities.  
+- Assisted in tutoring, mentoring, and organizing educational activities, contributing to community development and outreach.  
