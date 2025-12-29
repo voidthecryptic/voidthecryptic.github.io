@@ -26,9 +26,9 @@ author:
   name             : "Peerzada Arsalan Masoodi"
   pronouns         : # example: "she/her"  
   bio              : "I am a final year B.Tech student of Electronics and Communication. I have adept knowledge about the working of VLSI and other formats."
-  location         : "<a href='https://www.google.com/maps/search/Anantnag,+Jammu+and+Kashmir' target='_blank' rel='noopener'>Jammu and Kashmir</a>"
+  location         : "<a Jammu and Kashmir >href='https://www.google.com/maps/search/Anantnag,+Jammu+and+Kashmir' target='_blank' rel='noopener'</a>"
 
-  employer         : "Red Brick University"
+  employer         : "Shri Mata Vaishno Devi University"
   uri              : # URL
   email            : "none@example.org" 
 
