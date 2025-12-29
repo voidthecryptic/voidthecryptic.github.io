@@ -24,6 +24,6 @@ main:
    #url: /cv-json/
     
   - title: "Resume"
-    url: /Arsalan_resume.pdf
+    url: https://drive.google.com/file/d/1brI8U6NmvVFUt9R6pcuuf_MgzNcK3235/view?usp=sharing
     external: true
     new_tab: true
