@@ -12,7 +12,7 @@ site_theme               : "dirt" # the available themes options are "default", 
 title                    : "Arsalan's Homepage"
 title_separator          : "-"
 name                     : &name "Peerzada Arsalan Masoodi"
-description              : &description "Neuromorphic hardware and VLSI enthusiast"
+description              : &description "Neuromorphic hardware and VLSI Enthusiast"
 url                      : "https://voidthecryptic.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "voidthecryptic/voidthecryptic.github.io"
@@ -27,6 +27,7 @@ author:
   pronouns         : # example: "she/her"  
   bio              : "Neuromorphic hardware and VLSI enthusiast"
   location          : "Anantnag Jammu Kashmir"
+  Phone            : "+919149510564"
   employer         : "Shri Mata Vaishno Devi University"
   uri              : # URL
   email            : "arsalanmasoodi@outlook.com" 
