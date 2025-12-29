@@ -17,11 +17,11 @@ main:
   - title: "Blog Posts"
     url: /year-archive/
     
-  - title: "CV"
-    url: /cv/
+  #- title: "CV"
+   # url: /cv/
     
-  # - title: "CV"
-  #   url: /cv-json/
+   - title: "CV"
+   url: /cv-json/
     
   - title: "Resume"
     url: /Arsalan_resume.pdf
