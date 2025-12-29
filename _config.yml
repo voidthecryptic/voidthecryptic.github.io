@@ -12,7 +12,7 @@ site_theme               : "dirt" # the available themes options are "default", 
 title                    : "Arsalan's Homepage"
 title_separator          : "-"
 name                     : &name "Peerzada Arsalan Masoodi"
-description              : &description "I am a final year B.Tech student of Electronics and Communication. I have adept knowledge about the working of VLSI and other formats."
+description              : &description "Neuromorphic hardware and VLSI enthusiast"
 url                      : "https://voidthecryptic.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "voidthecryptic/voidthecryptic.github.io"
@@ -29,7 +29,7 @@ author:
   location          : "Anantnag Jammu Kashmir"
   employer         : "Shri Mata Vaishno Devi University"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "arsalanmasoodi@outlook.com" 
 
   # Academic websites
   academia         : # URL
@@ -50,13 +50,13 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "academicpages"
+  github           : "Github"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
   artstation       : # Username
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
