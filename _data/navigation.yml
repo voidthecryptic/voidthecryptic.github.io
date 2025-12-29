@@ -25,3 +25,5 @@ main:
     
   - title: "Resume"
     url: /Arsalan_resume.pdf
+    external: true
+    new_tab: true
