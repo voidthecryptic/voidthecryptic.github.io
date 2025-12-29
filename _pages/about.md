@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Arsalan Masoodi's Homepage "
+title: "👋Hello There"
 author_profile: true
 redirect_from: 
   - /about/
