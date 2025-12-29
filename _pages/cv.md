@@ -26,12 +26,12 @@ redirect_from:
   * Connected device-level insights to CMOS VLSI design, strengthening understanding of leakage control, threshold tuning, and layout implications
     
   
-## Technical Skills
+## Skills
 
-**Languages:** Python · C++ · C · MATLAB · LaTeX · HTML  
+**Software Languages:** Python · C++ · C · MATLAB · LaTeX · HTML  
 **HDL / Embedded:** Verilog · Embedded C · Assembly  
 **Tools / EDA:** LTspice · Vivado · QuestaSim · Cadence Virtuoso · OpenLANE · Yosys · KiCad · EagleCAD · Proteus  
-
+Languages : English , Urdu, Kashmiri, Japanese(Basic) 
 ---
 
 ## Certifications & Memberships
