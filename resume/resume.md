@@ -1,10 +1,10 @@
 ---
 layout: archive
-title: "Resume"
+title: "Professional Resume"
 permalink: /resume/
 ---
 
-# Professional Resume
+
 
 Welcome! Below is a comprehensive overview of my academic background and professional experience.
 
