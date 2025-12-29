@@ -10,18 +10,18 @@ redirect_from:
 {% include base_path %}
 
 # Education
-======
-* ## *B-TECH* in Electronics and Communications, 2022-2026 (expected)
+---
+* **B-TECH in Electronics and Communications, 2022-2026** (expected)
     CGPA : 8,3/10
-* ## Higher Secondary Education in Eff Emm School, 2021
+* **Higher Secondary Education in Eff Emm School, 2021**
      Percentage : 91.6%
-* ## High School Education in ST. Lukes Convent School
+* **High School Education in ST. Lukes Convent School**
      Percentage : 95.6%
 
 # Work experience
-======
+---
 
-* ## Summer 2024: Research Intern at NIT Srinagar
+* Summer 2024: Research Intern at NIT Srinagar
   * Assisted in semiconductor device research under *Dr. Sheikh Amir Ahsan* with focus on MOSFET physics and microelectronics
   * Analyzed I–V characteristics, small-signal models, and transient behavior using LTspice
   * Connected device-level insights to CMOS VLSI design, strengthening understanding of leakage control, threshold tuning, and layout implications
