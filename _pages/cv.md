@@ -28,11 +28,12 @@ redirect_from:
   
 ## Skills
 ---
+
 **Software Languages:** Python · C++ · C · MATLAB · LaTeX · HTML  
 **HDL / Embedded:** Verilog · Embedded C · Assembly  
 **Tools / EDA:** LTspice · Vivado · QuestaSim · Cadence Virtuoso · OpenLANE · Yosys · KiCad · EagleCAD · Proteus  
 Languages : English , Urdu, Kashmiri, Japanese(Basic) 
----
+
 
 ## Certifications & Memberships
 ---
@@ -41,9 +42,10 @@ Languages : English , Urdu, Kashmiri, Japanese(Basic)
 - [🏅 Computer Networks and Internet Protocol (Top 5%)](https://nptel.ac.in/noc/E_Certificate/NPTEL25CS15S124770045304263377)  
 - [🏅Computer Architecture and Organization](https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25CS154S115890005310230442)  
 - [🏅 VLSI RTL to GDS (Top 5%)](https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25EE106S65890050110230442)  
-- [🏅Introduction to Japanese Language and Culture](https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25HS43S104770041804263377)_
+- [🏅Introduction to Japanese Language and Culture](https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25HS43S104770041804263377)
   
 **Memberships:** IEEE Computer Society · IEEE Solid-State Circuits Society
+
 
 ## Leadership & Extracurricular Activities
 ---
