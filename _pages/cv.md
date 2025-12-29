@@ -27,7 +27,7 @@ redirect_from:
     
   
 ## Skills
-
+---
 **Software Languages:** Python · C++ · C · MATLAB · LaTeX · HTML  
 **HDL / Embedded:** Verilog · Embedded C · Assembly  
 **Tools / EDA:** LTspice · Vivado · QuestaSim · Cadence Virtuoso · OpenLANE · Yosys · KiCad · EagleCAD · Proteus  
@@ -35,18 +35,18 @@ Languages : English , Urdu, Kashmiri, Japanese(Basic)
 ---
 
 ## Certifications & Memberships
-
+---
 **NPTEL Certifications:**  
 - [🏅 Digital IC Design (Top 5%)](https://nptel.ac.in/noc/E_Certificate/NPTEL25EE21S64770049504263377)  
 - [🏅 Computer Networks and Internet Protocol (Top 5%)](https://nptel.ac.in/noc/E_Certificate/NPTEL25CS15S124770045304263377)  
-- [Computer Architecture and Organization](https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25CS154S115890005310230442)  
+- [🏅Computer Architecture and Organization](https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25CS154S115890005310230442)  
 - [🏅 VLSI RTL to GDS (Top 5%)](https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25EE106S65890050110230442)  
-
+- [🏅Introduction to Japanese Language and Culture](https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25HS43S104770041804263377)_
+  
 **Memberships:** IEEE Computer Society · IEEE Solid-State Circuits Society
 
-
-  ## Leadership & Extracurricular Activities
-
+## Leadership & Extracurricular Activities
+---
 ### Tarang — Core Member  
 **Shri Mata Vaishno Devi University** · Dec 2024 – Present  
 - Co-managed and organized technical events for the university technical fest **EKATVA–2025**.  
@@ -57,3 +57,4 @@ Languages : English , Urdu, Kashmiri, Japanese(Basic)
 **Shri Mata Vaishno Devi University** · Apr 2023 – Present  
 - Volunteered in a student-led initiative providing **academic support to underprivileged children** from local communities.  
 - Assisted in tutoring, mentoring, and organizing educational activities, contributing to community development and outreach.  
+---
