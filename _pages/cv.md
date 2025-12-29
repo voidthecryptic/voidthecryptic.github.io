@@ -58,5 +58,6 @@ redirect_from:
 ### [Vikalp](https://vikalp.smvdu.ac.in/) — Volunteer  
 **Shri Mata Vaishno Devi University** · Apr 2023 – Present  
 - Volunteered in a student-led initiative providing **academic support to underprivileged children** from local communities.  
-- Assisted in tutoring, mentoring, and organizing educational activities, contributing to community development and outreach.  
+- Assisted in tutoring, mentoring, and organizing educational activities, contributing to community development and outreach.
+    
 ---
