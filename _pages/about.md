@@ -1,15 +1,19 @@
 ---
 permalink: /
-title: "Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "Arsalan Masoodi's Homepage "
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
+
 ---
 
-This is the front page of a website that is powered by the [Academic Pages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the repository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. Incidentally, these same features make it a great template for anyone that needs to show off a professional template!
+## About
+I am a final-year undergraduate student in Electronics and Communication Engineering at **Shri Mata Vaishno Devi University**, with a strong interest in **neuromorphic hardware architectures** and **low-power VLSI design**. My academic focus lies at the intersection of **device-level understanding**, **RTL/system-level design**, and **open-source ASIC toolchains**.
 
- You can fork [this template](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and Markdown files, add your own PDFs and other content, and have your own site for free, with no ads!
+I am particularly interested in how principles from neuroscience such as event-driven computation, sparse activity, and local learning—can be translated into efficient silicon implementations. My work combines hands-on circuit simulation, RTL development, and full ASIC flows, with the goal of building scalable and energy-efficient computing systems.
+
+---
 
 A data-driven personal website
 ======
