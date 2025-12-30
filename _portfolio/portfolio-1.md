@@ -1,6 +1,6 @@
 ---
-title: "Portfolio item number 1"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+title: "Audio Amplifier Using BJT"
+excerpt: "The amplifier is simulated in LTspice and this projects marks the beginning of my Electronics Career1<br/><img src='/images/500x300.png'>"
 collection: portfolio
 ---
 
