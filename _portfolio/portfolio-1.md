@@ -5,6 +5,12 @@ collection: portfolio
 category: academic
 layout: single
 tags: [electronics, amplifier, bjt]
+header:
+  teaser: /images/amplifier_3d_view.png
+toc: true
+toc_sticky: true
+classes: wide
+
 ---
 ## Introduction
 
