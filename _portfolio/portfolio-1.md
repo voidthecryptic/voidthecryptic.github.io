@@ -1,6 +1,6 @@
 ---
 title: "Audio Amplifier using BJT"
-excerpt: "The amplifier is simulated in LTspice and marks the beginning of my electronics.<br/><img src='/images/amplifier_3d_view.png' width='500' height '300'>"
+excerpt: "The amplifier is simulated in LTspice and marks the beginning of my electronics.<br/><img src='/images/amplifier_3d_view.png' width='500' height='300' alt='3D Amplifier PCB'>"
 collection: portfolio
 category: academic
 layout: default
