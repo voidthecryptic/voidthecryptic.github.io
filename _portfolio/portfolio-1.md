@@ -1,9 +1,10 @@
-___
-title: Audio Amplifier using BJT
-excerpt: The amplifier is simulated in LTspice and this projects marks the beginning of my electronics 
-collection: portfolio
 ---
-
+title: "Audio Amplifier using BJT"
+excerpt: "The amplifier is simulated in LTspice and marks the beginning of my electronics journey."
+collection: portfolio
+category: academic
+tags: [electronics, amplifier, bjt]
+---
 ## Introduction
 
 Amplifiers comprise the most basic piece in modern electronics and feature high application in almost any scheme requiring signal processing. This project explores the design of a two-stage common emitter amplifier with a push-pull configuration, realized using widely available NPN and PNP BJTs (BC547B, BC557B) [file:1].
