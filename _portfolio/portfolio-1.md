@@ -18,7 +18,6 @@ Amplifiers comprise the most basic piece in modern electronics and feature high 
 
 The goal was to design a small-signal amplifier for audio signal processing, bridging theoretical principles with practical circuit implementation. While amplifiers may seem simple, achieving optimal performance requires mastering component interaction, frequency response, and operating point stability.
 
-![3D Visualization of the Amplifier PCB](/images/amplifier_3d_view.png)
 <div style="aspect-ratio: 16 / 9; width: 100%;">
   <img src="/images/amplifier_3d_view.png" style="width:100%; height:100%; object-fit:contain;">
 </div>
