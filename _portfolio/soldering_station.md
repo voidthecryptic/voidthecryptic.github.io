@@ -2,7 +2,7 @@
 title: "Digital Soldering Station using Hakko 907"
 excerpt: "A custom-built digital soldering station featuring PID temperature control, Arduino Nano, and the Hakko 907 handle for precision electronics work."
 collection: portfolio
-layout: default
+layout: custom
 tags: [electronics, arduino, pid, soldering, kicad]
 header:
   teaser: /images/soldering-station-teaser.jpg
@@ -145,8 +145,8 @@ The construction of this Digital Soldering Station effectively solves the drawba
 This project served as an enriching experience in circuit design, embedded programming, sensor interfacing, and thermal management. The resulting device is a reliable tool for students and hobbyists, with potential for future features like sleep modes and IoT monitoring [1].
 
 ### References
-1.  Minor Project II Body.docx [1]
-2.  P. Horowitz and W. Hill, *The Art of Electronics*, 3rd ed., Cambridge University Press, 2015 [1].
-3.  D. R. White and M. Sapoff, “Thermistor Thermometers,” in *Measurement, Instrumentation, and Sensors Handbook* [1].
-4.  [LM358 Dual Op-Amp Datasheet](https://how2electronics.com/lm358-dual-op-amp-features-pins-working-applications/) [1].
-5.  [IRLB4132 MOSFET Datasheet](https://www.componentsinfo.com/irlb4132/) [1].
+
+1.  P. Horowitz and W. Hill, *The Art of Electronics*, 3rd ed., Cambridge University Press, 2015 [1].
+2.  D. R. White and M. Sapoff, “Thermistor Thermometers,” in *Measurement, Instrumentation, and Sensors Handbook* [1].
+3.  [LM358 Dual Op-Amp Datasheet](https://how2electronics.com/lm358-dual-op-amp-features-pins-working-applications/) [1].
+4.  [IRLB4132 MOSFET Datasheet](https://www.componentsinfo.com/irlb4132/) [1].
