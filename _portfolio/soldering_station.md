@@ -45,6 +45,7 @@ Accurate temperature control is the hallmark of a good soldering station. Textbo
 When turned on, the thermistor in the handle senses the tip temperature. This signal is amplified by the LM358 and sent to the Arduino Nano. The Arduino compares this reading to the setpoint and uses a **PID algorithm** to toggle the MOSFET, controlling power to the heater. This determines the required power output based on the current temperature error, the accumulated error (integral), and the rate of change (derivative).
 
 ![KiCad Schematic](/images/schematic-kicad.png)
+
 *[Figure 3.1: Schematic in KiCad]*
 
 ---
@@ -68,6 +69,7 @@ We noted the resistance of the thermistor by varying the input temperature. The 
 *[Data sampled from testing]*
 
 ![Thermistor Curve](/images/thermistor-curve.png)
+
 *[Figure 4.1: Thermistor Resistance vs Temperature]*
 
 **Step 2: Voltage Division Analysis**
@@ -110,6 +112,7 @@ $$V_0 = V_i (1 + \frac{R_f}{R_i}) = 1.624V \times 2.22 = 3.58V$$
 This creates enough spacing (3.58V) to ensure the resolution increases without skipping any temperature points.
 
 ![Op-Amp Circuit](/images/opamp-circuit.png)
+
 *[Figure 4.2: Op-amp Non-inverting Amplifier]*
 
 ### 4.2 Implementation
@@ -118,21 +121,25 @@ This creates enough spacing (3.58V) to ensure the resolution increases without s
 We first validated the circuit functionality on a breadboard to test the heating control and sensor feedback.
 
 ![Breadboard Implementation](/images/breadboard-setup.jpg)
+
 *[Figure 4.3: Physical Implementation on Breadboard]*
 
 **KiCad Implementation:**
 The PCB was designed to minimize board area and jumper wires. The final design requires only one jumper wire, with the rest routed perfectly.
 
 ![PCB Layout](/images/pcb-layout.png)
+
 *[Figure 4.4: Gerber file with routing]*
 
 ![3D PCB View](/images/pcb-3d-view.png)
+
 *[Figure 4.5: 3D Viewer of Gerber File]*
 
 ### 4.3 Enclosure Design
 We designed a custom enclosure using Onshape to house the PCB, featuring cutouts for the LCD and control knob.
 
 ![Enclosure Front](/images/enclosure-front.png)
+
 *[Figure 4.6: Front Panel View]*
 
 ---
