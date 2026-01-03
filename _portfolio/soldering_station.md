@@ -12,22 +12,22 @@ toc_sticky: true
 
 ## 1. Introduction
 
-Soldering is a basic process in electronics that allows for the effective electrical and mechanical joining of parts on a circuit board. However, older soldering irons are generally not well equipped with precise temperature control, which causes bad solder joints, damage to components, and efficiency loss [1].
+Soldering is a basic process in electronics that allows for the effective electrical and mechanical joining of parts on a circuit board. However, older soldering irons are generally not well equipped with precise temperature control, which causes bad solder joints, damage to components, and efficiency loss.
 
-To address these issues, this project implements a **Digital Soldering Station** based on the Hakko 907 handle. This station offers an intuitive interface to adjust and observe the temperature in real-time, utilizing a microcontroller-based system with a PID algorithm for stable working temperatures [1].
+To address these issues, this project implements a **Digital Soldering Station** based on the Hakko 907 handle. [cite_start]This station offers an intuitive interface to adjust and observe the temperature in real-time, utilizing a microcontroller-based system with a PID algorithm for stable working temperatures [cite: 5-8].
 
 ### 1.1 Motivation
-The need for this project arose from hands-on experience with electronics prototyping, where inconsistent soldering outcomes due to temperature variations often decreased circuit quality or damaged expensive parts. We chose this project because it integrates hardware design, sensor integration, embedded programming, and control system theory [1].
+The need for this project arose from hands-on experience with electronics prototyping, where inconsistent soldering outcomes due to temperature variations often decreased circuit quality or damaged expensive parts. We chose this project because it integrates hardware design, sensor integration, embedded programming, and control system theory.
 
 ---
 
 ## 2. Literature Review
 
 ### 2.1 Background
-Soldering stations distinguish themselves from simple irons by allowing users to set and hold specific tip temperatures. The Hakko 907 handle is a common choice for custom builds due to its compact ceramic heating element and built-in thermistor. Modern stations have moved away from primitive on-off designs towards sophisticated systems based on feedback techniques like PID control [1].
+Soldering stations distinguish themselves from simple irons by allowing users to set and hold specific tip temperatures. The Hakko 907 handle is a common choice for custom builds due to its compact ceramic heating element and built-in thermistor. Modern stations have moved away from primitive on-off designs towards sophisticated systems based on feedback techniques like PID control.
 
 ### 2.2 Control Systems
-Accurate temperature control is the hallmark of a good soldering station. Textbooks like *"Process Dynamics and Control"* explain how PID (Proportional-Integral-Derivative) controllers reduce the error between set and measured temperatures by dynamically varying heater power. This achieves low overshoot and rapid stabilization, which is crucial when soldering to large copper planes or thick wires [1].
+Accurate temperature control is the hallmark of a good soldering station. Textbooks like *"Process Dynamics and Control"* explain how PID (Proportional-Integral-Derivative) controllers reduce the error between set and measured temperatures by dynamically varying heater power. This achieves low overshoot and rapid stabilization, which is crucial when soldering to large copper planes or thick wires.
 
 ---
 
@@ -35,15 +35,15 @@ Accurate temperature control is the hallmark of a good soldering station. Textbo
 
 ### 3.1 List of Components
 
-* **Hakko 907 Soldering Handle:** The pivotal component of the station, including a ceramic heating element and a built-in thermistor that accurately senses the temperature at the tip [1].
-* **Arduino Nano:** Acts as the brain of the system, controlling the PID Loop, sensing the temperature, and executing the control algorithm to keep the temperature precise [1].
-* **Power Transistor (IRLB4132):** An N-channel power MOSFET functioning as a high-speed switch to modulate power to the heating element based on signals from the microcontroller [1].
-* **LM358 Operational Amplifier:** A dual op-amp used to amplify and condition the analog temperature signal from the thermistor ensuring accurate readings for the Arduino [1].
-* **16x2 I2C LCD Display:** Displays the real-time temperature data and user-set parameters via the I2C protocol (SDA and SCL) [1].
-* **DC-DC Buck Converter:** Steps down the stable 24V DC supply to 5V for the microcontroller to ensure stable operation and protect sensitive electronics [1].
+* **Hakko 907 Soldering Handle:** The pivotal component of the station, including a ceramic heating element and a built-in thermistor that accurately senses the temperature at the tip.
+* **Arduino Nano:** Acts as the brain of the system, controlling the PID Loop, sensing the temperature, and executing the control algorithm to keep the temperature precise.
+* **Power Transistor (IRLB4132):** An N-channel power MOSFET functioning as a high-speed switch to modulate power to the heating element based on signals from the microcontroller.
+* **LM358 Operational Amplifier:** A dual op-amp used to amplify and condition the analog temperature signal from the thermistor ensuring accurate readings for the Arduino.
+* **16x2 I2C LCD Display:** Displays the real-time temperature data and user-set parameters via the I2C protocol (SDA and SCL).
+* **DC-DC Buck Converter:** Steps down the stable 24V DC supply to 5V for the microcontroller to ensure stable operation and protect sensitive electronics.
 
 ### 3.2 Working Principle
-When turned on, the thermistor in the handle senses the tip temperature. This signal is amplified by the LM358 and sent to the Arduino Nano. The Arduino compares this reading to the setpoint and uses a **PID algorithm** to toggle the MOSFET, controlling power to the heater. This determines the required power output based on the current temperature error, the accumulated error (integral), and the rate of change (derivative) [1].
+When turned on, the thermistor in the handle senses the tip temperature. This signal is amplified by the LM358 and sent to the Arduino Nano. The Arduino compares this reading to the setpoint and uses a **PID algorithm** to toggle the MOSFET, controlling power to the heater. [cite_start]This determines the required power output based on the current temperature error, the accumulated error (integral), and the rate of change (derivative) [cite: 68-75].
 
 ![KiCad Schematic](/images/schematic-kicad.png)
 *[Figure 3.7: Schematic in KiCad]*
@@ -55,9 +55,9 @@ When turned on, the thermistor in the handle senses the tip temperature. This si
 ### 4.1 Calculations
 
 **Step 1: Thermistor Characterization**
-We noted the resistance of the thermistor by varying the input temperature. The curve is almost linear between $150^{\circ}\text{C}$ and $400^{\circ}\text{C}$, allowing for linear approximation in the code [1].
+We noted the resistance of the thermistor by varying the input temperature. The curve is almost linear between 150°C and 400°C, allowing for linear approximation in the code.
 
-| Temperature ($^\circ$C) | Resistance ($\Omega$) |
+| Temperature (°C) | Resistance (Ω) |
 | :--- | :--- |
 | 27 | 54.92 |
 | 100 | 75.88 |
@@ -72,43 +72,43 @@ We noted the resistance of the thermistor by varying the input temperature. The 
 *[Figure 4.1: Thermistor Resistance vs Temperature]*
 
 **Step 2: Voltage Division Analysis**
-We determined the voltage output from the divider at ambient and maximum temperatures with an input voltage ($ V_{in} $) of 5V [1].
+We determined the voltage output from the divider at ambient and maximum temperatures with an input voltage (V_in) of 5V.
 Using the voltage division rule:
 
-* At Ambient Temperature ($27^{\circ}\text{C}$): $V_{out} = 0.544\text{V}$
-* At Maximum Temperature ($525^{\circ}\text{C}$): $V_{out} = 1.624\text{V}$
+* At Ambient Temperature (27°C): **V_out = 0.544V**
+* At Maximum Temperature (525°C): **V_out = 1.624V**
 
 **Step 3: ADC Resolution and Skipping Check**
-The Arduino Nano has a 10-bit ADC resolution with a 5V reference. The resolution is calculated as [1]:
+The Arduino Nano has a 10-bit ADC resolution with a 5V reference. The resolution is calculated as:
 
-$$\text{Resolution} = \frac{V_{ref}}{2^n - 1} = \frac{5\text{V}}{1023} \approx 4.88 \text{mV/div}$$
+$$Resolution = \frac{V_{ref}}{2^n - 1} = \frac{5V}{1023} \approx 4.88 mV/div$$
 
 We calculated the number of available ADC divisions for our voltage range:
 
-$$\text{Available Divs} = \frac{V_{out(max)}}{Resolution} = \frac{1.624\text{V}}{4.88\text{mV}} \approx 330 \text{ divs}$$
+$$Available Divs = \frac{V_{out(max)}}{Resolution} = \frac{1.624V}{4.88mV} \approx 330 \text{ divs}$$
 
-However, the temperature range required is $525 - 27 = 498$ degrees. Since the required temperature divisions (498) are greater than the available ADC divisions (330), skipping of temperature values would occur. We therefore required an amplifier [1].
+However, the temperature range required is 525 - 27 = 498 degrees. Since the required temperature divisions (498) are greater than the available ADC divisions (330), skipping of temperature values would occur. [cite_start]We therefore required an amplifier[cite: 98].
 
 **Step 4: Amplifier Gain Calculation**
-To match the resolution, we calculated the required target output voltage ($V_{out\_req}$) to cover 498 divisions [1]:
+To match the resolution, we calculated the required target output voltage (V_out_req) to cover 498 divisions:
 
-$$V_{out\_req} > 498 \times 4.88\text{mV} \approx 2.434\text{V}$$
+$$V_{out\_req} > 498 \times 4.88mV \approx 2.434V$$
 
-We then determined the required gain ($A_v$) based on the actual max voltage ($1.624\text{V}$):
+We then determined the required gain (A_v) based on the actual max voltage (1.624V):
 
-$$A_v = \frac{V_{out\_req}}{V_{in\_actual}} = \frac{2.434\text{V}}{1.624\text{V}} > 1.51$$
+$$A_v = \frac{V_{out\_req}}{V_{in\_actual}} = \frac{2.434V}{1.624V} > 1.51$$
 
 **Step 5: Op-Amp Configuration**
-We used an LM358 in a non-inverting configuration. We selected resistor values $R_f = 3.3\text{k}\Omega$ and $R_i = 2.7\text{k}\Omega$. The gain is calculated as [1]:
+We used an LM358 in a non-inverting configuration. We selected resistor values **Rf = 3.3kΩ** and **Ri = 2.7kΩ**. The gain is calculated as:
 
-$$A_v = 1 + \frac{R_f}{R_i} = 1 + \frac{3.3\text{k}\Omega}{2.7\text{k}\Omega} \approx 2.22$$
+$$A_v = 1 + \frac{R_f}{R_i} = 1 + \frac{3.3k\Omega}{2.7k\Omega} \approx 2.22$$
 
 **Step 6: Final Output Calculation**
-With this gain, the final output voltage ($V_0$) at maximum temperature is [1]:
+With this gain, the final output voltage (V_0) at maximum temperature is:
 
-$$V_0 = V_i \left(1 + \frac{R_f}{R_i}\right) = 1.624\text{V} \times 2.22 = 3.58\text{V}$$
+$$V_0 = V_i (1 + \frac{R_f}{R_i}) = 1.624V \times 2.22 = 3.58V$$
 
-This creates enough spacing ($3.58\text{V}$) to ensure the resolution increases without skipping any temperature points [1].
+This creates enough spacing (3.58V) to ensure the resolution increases without skipping any temperature points.
 
 ![Op-Amp Circuit](/images/opamp-circuit.png)
 *[Figure 4.2: Op-amp Non-inverting Amplifier]*
@@ -116,13 +116,13 @@ This creates enough spacing ($3.58\text{V}$) to ensure the resolution increases 
 ### 4.2 Implementation
 
 **Physical Implementation:**
-We first validated the circuit functionality on a breadboard to test the heating control and sensor feedback [1].
+We first validated the circuit functionality on a breadboard to test the heating control and sensor feedback.
 
 ![Breadboard Implementation](/images/breadboard-setup.jpg)
 *[Figure 4.3: Physical Implementation on Breadboard]*
 
 **KiCad Implementation:**
-The PCB was designed to minimize board area and jumper wires. The final design requires only one jumper wire, with the rest routed perfectly [1].
+The PCB was designed to minimize board area and jumper wires. The final design requires only one jumper wire, with the rest routed perfectly.
 
 ![PCB Layout](/images/pcb-layout.png)
 *[Figure 4.4: Gerber file with routing]*
@@ -131,7 +131,7 @@ The PCB was designed to minimize board area and jumper wires. The final design r
 *[Figure 4.6: 3D Viewer of Gerber File]*
 
 ### 4.3 Enclosure Design
-We designed a custom enclosure using Onshape to house the PCB, featuring cutouts for the LCD and control knob [1].
+We designed a custom enclosure using Onshape to house the PCB, featuring cutouts for the LCD and control knob.
 
 ![Enclosure Front](/images/enclosure-front.png)
 *[Figure 4.8: Front Panel View]*
@@ -140,13 +140,12 @@ We designed a custom enclosure using Onshape to house the PCB, featuring cutouts
 
 ## 5. Conclusion
 
-The construction of this Digital Soldering Station effectively solves the drawbacks of conventional equipment by providing enhanced temperature control, dependability, and a better human interface. By incorporating a microcontroller with a PID feedback loop, we achieved professional-grade accuracy suitable for real-world applications [1].
+The construction of this Digital Soldering Station effectively solves the drawbacks of conventional equipment by providing enhanced temperature control, dependability, and a better human interface. By incorporating a microcontroller with a PID feedback loop, we achieved professional-grade accuracy suitable for real-world applications.
 
-This project served as an enriching experience in circuit design, embedded programming, sensor interfacing, and thermal management. The resulting device is a reliable tool for students and hobbyists, with potential for future features like sleep modes and IoT monitoring [1].
+This project served as an enriching experience in circuit design, embedded programming, sensor interfacing, and thermal management. [cite_start]The resulting device is a reliable tool for students and hobbyists, with potential for future features like sleep modes and IoT monitoring [cite: 126-133].
 
 ### References
-
-1.  P. Horowitz and W. Hill, *The Art of Electronics*, 3rd ed., Cambridge University Press, 2015 [1].
-2.  D. R. White and M. Sapoff, “Thermistor Thermometers,” in *Measurement, Instrumentation, and Sensors Handbook* [1].
-3.  [LM358 Dual Op-Amp Datasheet](https://how2electronics.com/lm358-dual-op-amp-features-pins-working-applications/) [1].
-4.  [IRLB4132 MOSFET Datasheet](https://www.componentsinfo.com/irlb4132/) [1].
+* [cite_start]P. Horowitz and W. Hill, *The Art of Electronics*, 3rd ed., Cambridge University Press, 2015[cite: 135].
+* [cite_start]D. R. White and M. Sapoff, “Thermistor Thermometers,” in *Measurement, Instrumentation, and Sensors Handbook*[cite: 136].
+* [cite_start][LM358 Dual Op-Amp Datasheet](https://how2electronics.com/lm358-dual-op-amp-features-pins-working-applications/)[cite: 141].
+* [cite_start][IRLB4132 MOSFET Datasheet](https://www.componentsinfo.com/irlb4132/)[cite: 141].
