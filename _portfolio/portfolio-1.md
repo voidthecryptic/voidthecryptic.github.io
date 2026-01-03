@@ -6,7 +6,7 @@ category: academic
 layout: custom
 tags: [electronics, amplifier, bjt]
 header:
- teaser: /images/amplifier_3d_view.png
+date: 22/11/2024
 toc: true
 toc_sticky: true
 classes: wide
