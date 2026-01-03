@@ -6,6 +6,7 @@ category: academic
 layout: custom
 tags: [electronics, amplifier, bjt]
 header:
+order: 1
 date: 22/11/2024
 toc: true
 toc_sticky: true
