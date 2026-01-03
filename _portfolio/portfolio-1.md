@@ -80,36 +80,3 @@ V2 in 0 SINE (0 20m 120) AC 0 0
 .end
 
 ```
-
-
-
-
-
-<hr>
-
-<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2em;">
-  
-  <div class="share-buttons">
-    <strong>Share:</strong>
-    <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ page.url }}" target="_blank" rel="noopener noreferrer" style="margin-right: 10px; text-decoration: none;">
-      &#120143; Twitter
-    </a>
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ page.url }}&title={{ page.title | url_encode }}" target="_blank" rel="noopener noreferrer" style="margin-right: 10px; text-decoration: none;">
-      in LinkedIn
-    </a>
-    <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
-      f Facebook
-    </a>
-  </div>
-
-  <div class="next-post">
-    {% if page.next %}
-      <a href="{{ page.next.url }}" class="btn btn--primary" style="text-decoration: none; font-weight: bold;">
-        Next Project &rarr;
-      </a>
-    {% else %}
-      <span style="color: gray;">(Latest Post)</span>
-    {% endif %}
-  </div>
-
-</div>
