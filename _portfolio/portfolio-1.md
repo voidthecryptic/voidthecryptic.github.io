@@ -3,7 +3,7 @@ title: "Audio Amplifier using BJT"
 excerpt: "The amplifier is simulated in LTspice and marks the beginning of my electronics.<br/><img src='/images/var_gain.gif' width='500' height='300' alt='3D Amplifier PCB'>"
 collection: portfolio
 category: academic
-layout: default
+layout: single
 tags: [electronics, amplifier, bjt]
 header:
  teaser: /images/amplifier_3d_view.png
