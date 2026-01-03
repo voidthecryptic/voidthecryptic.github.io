@@ -76,7 +76,6 @@ layout: compress
 
           <hr />
 
-          <!-- SHARE BUTTONS -->
           <div style="margin-top: 2em; margin-bottom: 2em;">
             <h4 style="margin-bottom: 0.5em;">Share on</h4>
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
@@ -84,21 +83,21 @@ layout: compress
               <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ page.url }}"
                  target="_blank" rel="noopener noreferrer"
                  class="btn"
-                 style="background-color:#000;color:#fff;">
+                 style="background-color:#000;color:#fff; border: none;">
                 <i class="fab fa-twitter"></i> X
               </a>
 
               <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ page.url }}&title={{ page.title | url_encode }}"
                  target="_blank" rel="noopener noreferrer"
                  class="btn"
-                 style="background-color:#0077b5;color:#fff;">
+                 style="background-color:#0077b5;color:#fff; border: none;">
                 <i class="fab fa-linkedin-in"></i> LinkedIn
               </a>
 
               <a href="https://api.whatsapp.com/send?text={{ page.title | url_encode }}%20{{ site.url }}{{ page.url }}"
                  target="_blank" rel="noopener noreferrer"
                  class="btn"
-                 style="background-color:#25D366;color:#fff;">
+                 style="background-color:#25D366;color:#fff; border: none;">
                 <i class="fab fa-whatsapp"></i> WhatsApp
               </a>
 
@@ -113,24 +112,41 @@ layout: compress
         {% endif %}
       </article>
 
-      <!-- RELATED PROJECTS -->
-      {% if page.collection == "portfolio" %}
+      {% if page.collection == 'portfolio' %}
         <div class="page__related">
-          <h4 class="page__related-title">You May Also Enjoy</h4>
+          {% if site.data.ui-text[site.locale].related_label %}
+            <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label }}</h4>
+          {% else %}
+            <h4 class="page__related-title">You May Also Enjoy</h4>
+          {% endif %}
 
           <div class="grid__wrapper">
-            {% assign related_projects = site.portfolio
-              | where_exp: "item", "item.tags | intersection: page.tags | size > 0" %}
+            {% assign related_projects = "" | split: "" %}
+            
+            {% for item in site.portfolio %}
+              {% if item.url != page.url %}
+                {% assign match = false %}
+                {% for tag in item.tags %}
+                  {% if page.tags contains tag %}
+                    {% assign match = true %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                
+                {% if match %}
+                  {% assign related_projects = related_projects | push: item %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
 
             {% if related_projects.size == 0 %}
-              {% assign related_projects = site.portfolio %}
+              {% assign related_projects = site.portfolio | where_exp:"item", "item.url != page.url" %}
             {% endif %}
 
             {% for project in related_projects limit:4 %}
-              {% if project.url != page.url %}
-                {% include archive-single.html type="grid" %}
-              {% endif %}
+              {% include archive-single.html type="grid" %}
             {% endfor %}
+            
           </div>
         </div>
       {% endif %}
