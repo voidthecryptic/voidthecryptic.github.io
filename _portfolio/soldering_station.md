@@ -72,7 +72,7 @@ We noted the resistance of the thermistor by varying the input temperature. The 
 *[Figure 4.1: Thermistor Resistance vs Temperature]*
 
 **Step 2: Voltage Division Analysis**
-We determined the voltage output from the divider at ambient and maximum temperatures with an input voltage ($V_{in}$) of 5V [1].
+We determined the voltage output from the divider at ambient and maximum temperatures with an input voltage ($ V_{in} $) of 5V [1].
 Using the voltage division rule:
 
 * At Ambient Temperature ($27^{\circ}\text{C}$): $V_{out} = 0.544\text{V}$
