@@ -42,15 +42,29 @@ layout: compress
               {% endif %}
               
               {% if page.date %}
-                <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+                <p class="page__date">
+                  <strong>
+                    <i class="fa fa-fw fa-calendar" aria-hidden="true"></i>
+                    {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}
+                  </strong>
+                  <time datetime="{{ page.date | date_to_xmlschema }}">
+                    {{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}
+                  </time>
+                </p>
               {% endif %}
             </header>
           {% endunless %}
 
           <section class="page__content" itemprop="text">
             {{ content }}
-            
-            {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
+
+            {% if page.link %}
+              <div>
+                <a href="{{ page.link }}" class="btn">
+                  {{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}
+                </a>
+              </div>
+            {% endif %}
           </section>
 
           <footer class="page__meta">
@@ -61,54 +75,36 @@ layout: compress
           </footer>
 
           <hr />
+
+          <!-- SHARE BUTTONS -->
           <div style="margin-top: 2em; margin-bottom: 2em;">
             <h4 style="margin-bottom: 0.5em;">Share on</h4>
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-              
-              <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ page.url }}" 
-                 target="_blank" rel="noopener noreferrer" 
-                 class="btn" 
-                 style="background-color: #000; color: #fff; border: none; display: flex; align-items: center; gap: 5px;">
-                <i class="fab fa-twitter" aria-hidden="true"></i> X (Twitter)
+
+              <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ page.url }}"
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn"
+                 style="background-color:#000;color:#fff;">
+                <i class="fab fa-twitter"></i> X
               </a>
 
-              <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" 
-                 target="_blank" rel="noopener noreferrer" 
-                 class="btn" 
-                 style="background-color: #3b5998; color: #fff; border: none; display: flex; align-items: center; gap: 5px;">
-                <i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook
-              </a>
-              
-              <a href="https://www.reddit.com/submit?url={{ site.url }}{{ page.url }}&title={{ page.title | url_encode }}" 
-                 target="_blank" rel="noopener noreferrer" 
-                 class="btn" 
-                 style="background-color: #FF4500; color: #fff; border: none; display: flex; align-items: center; gap: 5px;">
-                <i class="fab fa-reddit" aria-hidden="true"></i> Reddit
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ page.url }}&title={{ page.title | url_encode }}"
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn"
+                 style="background-color:#0077b5;color:#fff;">
+                <i class="fab fa-linkedin-in"></i> LinkedIn
               </a>
 
-              <a href="https://bsky.app/intent/compose?text={{ page.title | url_encode }}%20{{ site.url }}{{ page.url }}" 
-                 target="_blank" rel="noopener noreferrer" 
-                 class="btn" 
-                 style="background-color: #0560ff; color: #fff; border: none; display: flex; align-items: center; gap: 5px;">
-                🦋 Bluesky
-              </a>
-
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ page.url }}&title={{ page.title | url_encode }}" 
-                 target="_blank" rel="noopener noreferrer" 
-                 class="btn" 
-                 style="background-color: #0077b5; color: #fff; border: none; display: flex; align-items: center; gap: 5px;">
-                <i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
-              </a>
-
-              <a href="https://api.whatsapp.com/send?text={{ page.title | url_encode }}%20{{ site.url }}{{ page.url }}" 
-                 target="_blank" rel="noopener noreferrer" 
-                 class="btn" 
-                 style="background-color: #25D366; color: #fff; border: none; display: flex; align-items: center; gap: 5px;">
-                <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
+              <a href="https://api.whatsapp.com/send?text={{ page.title | url_encode }}%20{{ site.url }}{{ page.url }}"
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn"
+                 style="background-color:#25D366;color:#fff;">
+                <i class="fab fa-whatsapp"></i> WhatsApp
               </a>
 
             </div>
           </div>
+
           {% include post_pagination.html %}
         </div>
 
@@ -117,23 +113,29 @@ layout: compress
         {% endif %}
       </article>
 
-      {% comment %}{% endcomment %}
+      <!-- RELATED PROJECTS -->
       {% if page.collection == "portfolio" %}
-  <div class="page__related">
-    <h4 class="page__related-title">You May Also Enjoy</h4>
+        <div class="page__related">
+          <h4 class="page__related-title">You May Also Enjoy</h4>
 
-    <div class="grid__wrapper">
-      {% assign related_projects = site.portfolio 
-        | where_exp: "item", "item.tags | intersection: page.tags | size > 0" %}
+          <div class="grid__wrapper">
+            {% assign related_projects = site.portfolio
+              | where_exp: "item", "item.tags | intersection: page.tags | size > 0" %}
 
-      {% for project in related_projects limit:4 %}
-        {% if project.url != page.url %}
-          {% include archive-single.html type="grid" %}
-        {% endif %}
-      {% endfor %}
+            {% if related_projects.size == 0 %}
+              {% assign related_projects = site.portfolio %}
+            {% endif %}
+
+            {% for project in related_projects limit:4 %}
+              {% if project.url != page.url %}
+                {% include archive-single.html type="grid" %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+
     </div>
-  </div>
-{% endif %}
 
     <div class="page__footer">
       <footer>
