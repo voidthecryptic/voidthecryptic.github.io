@@ -76,7 +76,7 @@ layout: compress
 
           <hr />
 
-          <div style="margin-top: 2em; margin-bottom: 2em;">
+         <div style="margin-top: 2em; margin-bottom: 2em;">
             <h4 style="margin-bottom: 0.5em;">Share on</h4>
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
 
@@ -85,6 +85,20 @@ layout: compress
                  class="btn"
                  style="background-color:#000;color:#fff; border: none;">
                 <i class="fab fa-twitter"></i> X
+              </a>
+
+              <a href="https://bsky.app/intent/compose?text={{ page.title | url_encode }}%20{{ site.url }}{{ page.url }}"
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn"
+                 style="background-color:#0560FF;color:#fff; border: none;">
+                <i class="fa fa-cloud"></i> Bluesky
+              </a>
+
+              <a href="https://www.reddit.com/submit?url={{ site.url }}{{ page.url }}&title={{ page.title | url_encode }}"
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn"
+                 style="background-color:#FF4500;color:#fff; border: none;">
+                <i class="fab fa-reddit-alien"></i> Reddit
               </a>
 
               <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ page.url }}&title={{ page.title | url_encode }}"
@@ -99,6 +113,20 @@ layout: compress
                  class="btn"
                  style="background-color:#25D366;color:#fff; border: none;">
                 <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+
+              <a href="#"
+                 onclick="navigator.clipboard.writeText('{{ site.url }}{{ page.url }}'); alert('Link copied! You can now paste it into Discord.'); return false;"
+                 class="btn"
+                 style="background-color:#5865F2;color:#fff; border: none;">
+                <i class="fab fa-discord"></i> Discord
+              </a>
+
+              <a href="#"
+                 onclick="navigator.clipboard.writeText('{{ site.url }}{{ page.url }}'); alert('Link copied! You can now paste it into Instagram Stories/DMs.'); return false;"
+                 class="btn"
+                 style="background-color:#E1306C;color:#fff; border: none;">
+                <i class="fab fa-instagram"></i> Instagram
               </a>
 
             </div>
