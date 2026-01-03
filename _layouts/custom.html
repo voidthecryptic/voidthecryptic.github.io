@@ -78,6 +78,20 @@ layout: compress
                  style="background-color: #3b5998; color: #fff; border: none; display: flex; align-items: center; gap: 5px;">
                 <i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook
               </a>
+              
+              <a href="https://www.reddit.com/submit?url={{ site.url }}{{ page.url }}&title={{ page.title | url_encode }}" 
+                 target="_blank" rel="noopener noreferrer" 
+                 class="btn" 
+                 style="background-color: #FF4500; color: #fff; border: none; display: flex; align-items: center; gap: 5px;">
+                <i class="fab fa-reddit" aria-hidden="true"></i> Reddit
+              </a>
+
+              <a href="https://bsky.app/intent/compose?text={{ page.title | url_encode }}%20{{ site.url }}{{ page.url }}" 
+                 target="_blank" rel="noopener noreferrer" 
+                 class="btn" 
+                 style="background-color: #0560ff; color: #fff; border: none; display: flex; align-items: center; gap: 5px;">
+                🦋 Bluesky
+              </a>
 
               <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ page.url }}&title={{ page.title | url_encode }}" 
                  target="_blank" rel="noopener noreferrer" 
