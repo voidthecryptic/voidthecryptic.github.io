@@ -141,42 +141,50 @@ layout: compress
       </article>
 
       {% if page.collection == 'portfolio' %}
-        <div class="page__related">
-          {% if site.data.ui-text[site.locale].related_label %}
-            <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label }}</h4>
+      <div class="page__related">
+        {% if site.data.ui-text[site.locale].related_label %}
+          <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label }}</h4>
+        {% else %}
+          <h4 class="page__related-title">You May Also Enjoy</h4>
+        {% endif %}
+
+        <div class="grid__wrapper">
+          {% assign related_items = "" | split: "" %}
+          
+          {% if page.collection == 'portfolio' %}
+            {% assign source_collection = site.portfolio %}
           {% else %}
-            <h4 class="page__related-title">You May Also Enjoy</h4>
+            {% assign source_collection = site.posts %}
           {% endif %}
 
-          <div class="grid__wrapper">
-            {% assign related_projects = "" | split: "" %}
-            
-            {% for item in site.portfolio %}
-              {% if item.url != page.url %}
-                {% assign match = false %}
-                {% for tag in item.tags %}
-                  {% if page.tags contains tag %}
-                    {% assign match = true %}
-                    {% break %}
-                  {% endif %}
-                {% endfor %}
-                
-                {% if match %}
-                  {% assign related_projects = related_projects | push: item %}
+          {% for item in source_collection %}
+            {% if item.url != page.url %}
+              
+              {% assign match = false %}
+              {% for tag in item.tags %}
+                {% if page.tags contains tag %}
+                  {% assign match = true %}
+                  {% break %}
                 {% endif %}
+              {% endfor %}
+              
+              {% if match %}
+                {% assign related_items = related_items | push: item %}
               {% endif %}
-            {% endfor %}
-
-            {% if related_projects.size == 0 %}
-              {% assign related_projects = site.portfolio | where_exp:"item", "item.url != page.url" %}
+              
             {% endif %}
+          {% endfor %}
 
-            {% for project in related_projects limit:4 %}
-              {% include archive-single.html type="grid" %}
-            {% endfor %}
-            
-          </div>
+          {% if related_items.size == 0 %}
+            {% assign related_items = source_collection | where_exp:"item", "item.url != page.url" %}
+          {% endif %}
+
+          {% for project in related_items limit:4 %}
+            {% include archive-single.html type="grid" %}
+          {% endfor %}
+          
         </div>
+      </div>
       {% endif %}
 
     </div>
