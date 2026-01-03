@@ -1,11 +1,10 @@
 ---
 title: "Digital Soldering Station using Hakko 907"
-excerpt: "A custom-built digital soldering station featuring PID temperature control, Arduino Nano, and the Hakko 907 handle for precision electronics work."
+excerpt: "A custom-built digital soldering station featuring PID temperature control, Arduino Nano, and the Hakko 907 handle for precision electronics work.<br/><img src=' /images/soldering-station-teaser.jpg' width='500' height='300' alt='3D"
 collection: portfolio
 layout: custom
 tags: [electronics, arduino, pid, soldering, kicad]
 header:
-  teaser: /images/soldering-station-teaser.jpg
 toc: true
 toc_sticky: true
 ---
