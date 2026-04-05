@@ -56,4 +56,5 @@ Welcome! Below is a comprehensive overview of my academic background and profess
     <span style="margin-right: 10px; font-size: 1.2em;">📄</span> Download PDF
   </a>
 </div>
+
 ---
