@@ -21,7 +21,7 @@ Welcome! Below is a comprehensive overview of my academic background and profess
 
   <div style="position: relative; width: 100%; height: 0; padding-bottom: 129%;">
  
-    <iframe src="https://drive.google.com/file/d/1brI8U6NmvVFUt9R6pcuuf_MgzNcK3235/preview"
+    <iframe src="https://drive.google.com/file/d/1_h4fTeyntpvsajAw3bt-0rfYSsq0-FdH/preview"
             style="
                 position: absolute; 
                 top: 0; 
@@ -38,7 +38,7 @@ Welcome! Below is a comprehensive overview of my academic background and profess
 </div>
 
 <div style="text-align: center; margin-bottom: 3rem;">
-  <a href="https://drive.google.com/uc?export=download&id=1brI8U6NmvVFUt9R6pcuuf_MgzNcK3235" 
+  <a href="https://drive.google.com/uc?export=download&id=1_h4fTeyntpvsajAw3bt-0rfYSsq0-FdH" 
      style="
         display: inline-flex; 
         align-items: center; 
@@ -56,5 +56,4 @@ Welcome! Below is a comprehensive overview of my academic background and profess
     <span style="margin-right: 10px; font-size: 1.2em;">📄</span> Download PDF
   </a>
 </div>
-
 ---
