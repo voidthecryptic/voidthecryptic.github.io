@@ -13,9 +13,9 @@ title                    : "Arsalan's Homepage"
 title_separator          : "-"
 name                     : &name "Peerzada Arsalan Masoodi"
 description              : &description "Neuromorphic Hardware and VLSI Enthusiast"
-url                      : "https://arsalanmasoodi.github.io"
+url                      : "https://voidthecryptic.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "arsalanmasoodi/arsalanmasoodi.github.io"
+repository               : "voidthecryptic/voidthecryptic.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
