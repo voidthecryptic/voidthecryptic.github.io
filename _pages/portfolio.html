@@ -1,0 +1,13 @@
+---
+layout: archive
+title: "Projects"
+permalink: /portfolio/
+author_profile: true
+---
+
+{% assign portfolio_sorted = site.portfolio | where_exp: "item", "item.date != nil" | sort: "date" | reverse %}
+
+{% for post in portfolio_sorted %}
+  {% include archive-single.html %}
+{% endfor %}
+
