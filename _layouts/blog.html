@@ -7,18 +7,20 @@ layout: default
 
   <div class="blog-grid">
     {% for post in site.posts %}
-{% for post in site.posts %}
-  <a href="{{ post.url }}" 
-     class="blog-card"
-     data-aos="fade-up"
-     data-aos-delay="{{ forloop.index0 | times: 100 }}">
+      <a href="{{ post.url }}" 
+         class="blog-card" 
+         data-aos="fade-up"
+         data-aos-delay="{{ forloop.index0 | times: 100 }}">
+        
         <div class="blog-image">
           <img src="{{ post.image }}" alt="">
         </div>
+
         <div class="blog-content">
           <h2>{{ post.title }}</h2>
           <p>{{ post.excerpt }}</p>
         </div>
+
       </a>
     {% endfor %}
   </div>
