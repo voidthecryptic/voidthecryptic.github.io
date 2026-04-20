@@ -1,0 +1,314 @@
+/* ============================================================
+   PINTEREST-STYLE BLOG GALLERY
+   Place at: assets/css/blog-gallery.css
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:        #0e0e0e;
+  --paper:      #f5f2ed;
+  --cream:      #ede9e1;
+  --gold:       #c9a84c;
+  --gold-pale:  #e8d9a8;
+  --white:      #ffffff;
+  --pin-radius: 14px;
+  --ease:       cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+  background: var(--paper);
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+}
+
+/* ── WRAPPER ──────────────────────────────────────────────── */
+.pg-wrap {
+  min-height: 100vh;
+}
+
+/* ── HEADER ───────────────────────────────────────────────── */
+.pg-header {
+  position: relative;
+  padding: 6rem 5vw 3.5rem;
+  overflow: hidden;
+}
+
+.pg-header::before {
+  content: 'BLOG';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(5rem, 16vw, 14rem);
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  white-space: nowrap;
+  user-select: none;
+  z-index: 0;
+}
+
+.pg-header__eyebrow {
+  position: relative;
+  z-index: 1;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.pg-header__title {
+  position: relative;
+  z-index: 1;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 5.5vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.pg-header__sub {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #666;
+  max-width: 360px;
+}
+
+.pg-header__line {
+  margin-top: 2.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  width: 55%;
+  opacity: 0.5;
+}
+
+/* ── MASONRY COLUMNS ──────────────────────────────────────── */
+.pg-cols {
+  columns: 4 280px;   /* responsive: auto number of columns, min 280px each */
+  column-gap: 12px;
+  padding: 2rem 4vw 6rem;
+}
+
+/* ── PIN CARD ─────────────────────────────────────────────── */
+.pg-pin {
+  display: block;
+  break-inside: avoid;
+  margin-bottom: 12px;
+  border-radius: var(--pin-radius);
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+
+  /* scroll reveal — starts invisible */
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity   0.6s var(--ease),
+    transform 0.6s var(--ease);
+}
+
+.pg-pin.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger siblings */
+.pg-pin:nth-child(1)  { transition-delay: 0.04s; }
+.pg-pin:nth-child(2)  { transition-delay: 0.09s; }
+.pg-pin:nth-child(3)  { transition-delay: 0.14s; }
+.pg-pin:nth-child(4)  { transition-delay: 0.19s; }
+.pg-pin:nth-child(5)  { transition-delay: 0.24s; }
+.pg-pin:nth-child(6)  { transition-delay: 0.29s; }
+.pg-pin:nth-child(7)  { transition-delay: 0.09s; }
+.pg-pin:nth-child(8)  { transition-delay: 0.14s; }
+.pg-pin:nth-child(9)  { transition-delay: 0.19s; }
+.pg-pin:nth-child(10) { transition-delay: 0.24s; }
+.pg-pin:nth-child(11) { transition-delay: 0.12s; }
+.pg-pin:nth-child(12) { transition-delay: 0.17s; }
+
+/* ── IMAGE ────────────────────────────────────────────────── */
+.pg-pin__img-wrap {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--pin-radius);
+  background: #1a1a1a;
+}
+
+.pg-pin__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--pin-radius);
+  transition: transform 0.7s var(--ease);
+}
+
+.pg-pin:hover .pg-pin__img,
+.pg-pin.tapped .pg-pin__img {
+  transform: scale(1.06);
+}
+
+/* Placeholder — used when no cover_image set */
+.pg-pin__placeholder {
+  width: 100%;
+  /* Vary heights so masonry looks natural */
+  min-height: 180px;
+  background: linear-gradient(135deg, #1a1a2a 0%, #2e2a3e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--pin-radius);
+}
+
+.pg-pin__placeholder span {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--gold);
+  opacity: 0.18;
+  text-transform: uppercase;
+}
+
+/* ── HOVER OVERLAY ────────────────────────────────────────── */
+.pg-pin__overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--pin-radius);
+  background: linear-gradient(
+    to top,
+    rgba(6, 4, 2, 0.90) 0%,
+    rgba(6, 4, 2, 0.45) 45%,
+    rgba(6, 4, 2, 0.0)  100%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.pg-pin:hover .pg-pin__overlay,
+.pg-pin.tapped .pg-pin__overlay {
+  opacity: 1;
+}
+
+/* ── TEXT INFO (slides up on hover) ──────────────────────── */
+.pg-pin__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 1.1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity   0.35s ease,
+    transform 0.38s var(--ease);
+  pointer-events: none;
+}
+
+.pg-pin:hover .pg-pin__info,
+.pg-pin.tapped .pg-pin__info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pg-pin__cat {
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-pale);
+  font-weight: 500;
+}
+
+.pg-pin__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--white);
+}
+
+.pg-pin__excerpt {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.45;
+  font-weight: 300;
+}
+
+.pg-pin__meta {
+  font-size: 0.67rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 2px;
+}
+
+/* ── READ BUTTON (top-right pill) ─────────────────────────── */
+.pg-pin__read {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(-5px);
+  transition:
+    opacity   0.3s ease,
+    transform 0.3s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+  pointer-events: none;
+}
+
+.pg-pin:hover .pg-pin__read,
+.pg-pin.tapped .pg-pin__read {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.pg-pin:hover .pg-pin__read:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #1a1200;
+}
+
+/* ── EMPTY STATE ──────────────────────────────────────────── */
+.pg-empty {
+  text-align: center;
+  padding: 6rem 2rem;
+  color: #999;
+  font-size: 1.05rem;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .pg-cols {
+    columns: 2;
+    column-gap: 8px;
+    padding: 1.5rem 3vw 4rem;
+  }
+  .pg-pin { margin-bottom: 8px; }
+  .pg-header { padding: 4rem 5vw 2rem; }
+}
+
+@media (max-width: 400px) {
+  .pg-cols { columns: 1; }
+}

@@ -1,0 +1,63 @@
+---
+layout: default
+---
+<link rel="stylesheet" href="{{ '/assets/css/blog-gallery.css' | relative_url }}">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<div class="pg-wrap">
+
+  <header class="pg-header">
+    <p class="pg-header__eyebrow">thoughts & writing</p>
+    <h1 class="pg-header__title">The Blog</h1>
+    <p class="pg-header__sub">Ideas, research, and moments worth writing about.</p>
+    <div class="pg-header__line"></div>
+  </header>
+
+  {% if site.posts.size > 0 %}
+  <div class="pg-cols" id="pg-grid">
+    {% for post in site.posts %}
+    <a class="pg-pin" href="{{ post.url | relative_url }}" aria-label="{{ post.title }}">
+
+      <div class="pg-pin__img-wrap">
+        {% if post.cover_image %}
+          <img
+            src="{{ post.cover_image | relative_url }}"
+            alt="{{ post.title }}"
+            class="pg-pin__img"
+            loading="lazy"
+          />
+        {% else %}
+          <div class="pg-pin__placeholder">
+            <span>{{ post.title | slice: 0 }}</span>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="pg-pin__overlay"></div>
+
+      <div class="pg-pin__info">
+        {% if post.categories.size > 0 %}
+          <span class="pg-pin__cat">{{ post.categories | first }}</span>
+        {% endif %}
+        <span class="pg-pin__title">{{ post.title }}</span>
+        {% if post.excerpt %}
+          <span class="pg-pin__excerpt">{{ post.excerpt | strip_html | truncatewords: 14 }}</span>
+        {% endif %}
+        <span class="pg-pin__meta">
+          {{ post.date | date: "%b %-d, %Y" }}
+          {% if post.read_time %}&nbsp;·&nbsp;{{ post.read_time }} min{% endif %}
+        </span>
+      </div>
+
+      <div class="pg-pin__read">Read &rarr;</div>
+
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="pg-empty">No posts yet — check back soon.</p>
+  {% endif %}
+
+</div>
+
+<script src="{{ '/assets/js/blog-gallery.js' | relative_url }}"></script>
